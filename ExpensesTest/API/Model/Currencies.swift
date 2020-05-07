@@ -9,6 +9,6 @@
 import Foundation
 
 public struct Currencies: Decodable {
-    public let timestamp: Int
+    public let timestamp: TimeInterval
     public let quotes: [String: Double]
 }

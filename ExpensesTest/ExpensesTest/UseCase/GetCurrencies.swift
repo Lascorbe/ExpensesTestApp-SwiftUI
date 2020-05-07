@@ -33,7 +33,7 @@ final class GetCurrencies: UseCase {
 
 private extension Currencies {
     init(apiCurrencies: API.Currencies) {
-        self.lastUpdate = Date()
+        self.lastUpdate = Date(timeIntervalSince1970: apiCurrencies.timestamp)
         var quotes: [CurrencyCode: Currency] = [:]
         for (key, value) in apiCurrencies.quotes {
             if let code = CurrencyCode(rawValue: key) {
