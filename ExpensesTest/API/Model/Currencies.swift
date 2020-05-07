@@ -1,5 +1,5 @@
 //
-//  Currency.swift
+//  Currencies.swift
 //  API
 //
 //  Created by Luis Ascorbe on 07/05/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Currency: Codable {
-    let code: String
-    let value: Double
+struct Currencies: Decodable {
+    let timestamp: Int
+    let quotes: [String: Double]
 }

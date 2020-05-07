@@ -26,11 +26,11 @@
 		A0F59D7D246452A000D474D4 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D68246452A000D474D4 /* Storage.framework */; };
 		A0F59D7E246452A000D474D4 /* Storage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D68246452A000D474D4 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0F59D87246452D500D474D4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D86246452D500D474D4 /* CoreData.framework */; };
-		A0F59D8B246453CC00D474D4 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D8A246453CC00D474D4 /* Currency.swift */; };
 		A0F59D8D246455C600D474D4 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D8C246455C600D474D4 /* ExchangeRate.swift */; };
 		A0F59D90246455E000D474D4 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D8F246455E000D474D4 /* Engine.swift */; };
 		A0F59D92246456CD00D474D4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D91246456CD00D474D4 /* Endpoint.swift */; };
 		A0F59D94246458CA00D474D4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D93246458CA00D474D4 /* Environment.swift */; };
+		A0F59D96246463EF00D474D4 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D95246463EF00D474D4 /* Currencies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,11 +126,11 @@
 		A0F59D77246452A000D474D4 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		A0F59D79246452A000D474D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0F59D86246452D500D474D4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
-		A0F59D8A246453CC00D474D4 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		A0F59D8C246455C600D474D4 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		A0F59D8F246455E000D474D4 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		A0F59D91246456CD00D474D4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A0F59D93246458CA00D474D4 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		A0F59D95246463EF00D474D4 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,7 +302,7 @@
 		A0F59D89246453B800D474D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A0F59D8A246453CC00D474D4 /* Currency.swift */,
+				A0F59D95246463EF00D474D4 /* Currencies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -579,10 +579,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F59D96246463EF00D474D4 /* Currencies.swift in Sources */,
 				A0F59D8D246455C600D474D4 /* ExchangeRate.swift in Sources */,
 				A0F59D90246455E000D474D4 /* Engine.swift in Sources */,
 				A0F59D92246456CD00D474D4 /* Endpoint.swift in Sources */,
-				A0F59D8B246453CC00D474D4 /* Currency.swift in Sources */,
 				A0F59D94246458CA00D474D4 /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
