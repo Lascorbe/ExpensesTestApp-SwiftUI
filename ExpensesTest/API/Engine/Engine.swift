@@ -8,13 +8,88 @@
 
 import Foundation
 
-struct Engine {
-    indirect enum Error: Swift.Error {
-        case requestFailed
-        case unknown(Error)
+private let Key = "67f7e72b3da52513a9a2d03e4b0d871b"
+
+public struct Engine {
+    public indirect enum Error: Swift.Error {
+        case badBaseUrl
+        case badUrl
+        case noData
+        case apiRequestLimitReached
+        case requestFailedWithStatusCode(Int)
+        case requestFailedWithError(Swift.Error)
+        case decodeFailedWithError(Swift.Error)
     }
     
-    func request(_ request: Request) {
+    private let environment: Environment
+    private var dataTask: URLSessionDataTask?
+    
+    public init(environment: Environment) {
+        self.environment = environment
+    }
+    
+    func cancelOngoingRequest() {
+        dataTask?.cancel()
+    }
+    
+    mutating public func request<T: Decodable>(_ request: Request, completion: @escaping (Result<T, Error>) -> Void) throws {
+        let urlRequest = try makeRequest(with: request)
+        dataTask = try makeDataTask(with: urlRequest, completion: completion)
+        dataTask?.resume()
+    }
+    
+    private func makeRequest(with request: Request) throws -> URLRequest {
+        guard var components = URLComponents(string: environment.url) else {
+            throw Error.badBaseUrl
+        }
         
+        let endpoint = request.endpoint
+        var parameters = endpoint.parameters ?? [String: String]()
+        parameters["access_key"] = Key
+        components.queryItems = endpoint.parameters?.map { (key, value) in
+            URLQueryItem(name: key, value: value)
+        }
+        
+        guard let url = components.url else {
+            throw Error.badUrl
+        }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = endpoint.method.string
+        return urlRequest
+    }
+    
+    private func makeDataTask<T: Decodable>(with urlRequest: URLRequest, completion: @escaping (Result<T, Error>) -> Void) throws -> URLSessionDataTask {
+        return URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+            if let error = error {
+                print("Request failed with error: \(error.localizedDescription)")
+                completion(.failure(.requestFailedWithError(error)))
+                return
+            }
+            guard let data = data, let response = response as? HTTPURLResponse else {
+                completion(.failure(.noData))
+                return
+            }
+            guard (200 ..< 300) ~= response.statusCode else {
+                completion(.failure(self.parse(statusCode: response.statusCode)))
+                return
+            }
+            do {
+                let decoded = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(decoded))
+            } catch {
+                print("Decode failed with error: \(error.localizedDescription)")
+                completion(.failure(.decodeFailedWithError(error)))
+            }
+        }
+    }
+    
+    private func parse(statusCode: Int) -> Error {
+        switch statusCode {
+            case 104:
+                return Error.apiRequestLimitReached
+            default:
+                return Error.requestFailedWithStatusCode(statusCode)
+        }
     }
 }
