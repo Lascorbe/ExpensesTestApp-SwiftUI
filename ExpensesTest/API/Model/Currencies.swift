@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Currencies: Decodable {
+public struct Currencies: Decodable {
     let timestamp: Int
     let quotes: [String: Double]
 }

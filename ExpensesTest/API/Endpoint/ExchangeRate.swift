@@ -13,24 +13,24 @@ import Foundation
  in the currencies parameter, all relative to the source currency, the default is USD (US Dollars).
  */
 
-struct ExchangeRate: Endpoint {
-    var path: String {
+public struct ExchangeRate: Endpoint {
+    public var path: String {
         return "live"
     }
     
-    var method: HTTPMethod {
+    public var method: HTTPMethod {
         return .get
     }
     
-    var parameters: Parameters? {
+    public var parameters: Parameters? {
         return ["currencies": currencies.joined(separator: ",")]
     }
     
-    let currencies: [String]
-    let source: String
+    public let currencies: [String]
+    public let source: String
     
-    init(currencies: [String], source: String?) {
+    public init(currencies: [String], source: String = "USD") {
         self.currencies = currencies
-        self.source = source ?? "USD"
+        self.source = source
     }
 }

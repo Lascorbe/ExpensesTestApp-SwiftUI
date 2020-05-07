@@ -31,6 +31,13 @@
 		A0F59D92246456CD00D474D4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D91246456CD00D474D4 /* Endpoint.swift */; };
 		A0F59D94246458CA00D474D4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D93246458CA00D474D4 /* Environment.swift */; };
 		A0F59D96246463EF00D474D4 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D95246463EF00D474D4 /* Currencies.swift */; };
+		A0F59DA024646AE200D474D4 /* GetCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D9E24646AE200D474D4 /* GetCurrencies.swift */; };
+		A0F59DA324646B6800D474D4 /* SupportedCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DA224646B6800D474D4 /* SupportedCurrency.swift */; };
+		A0F59DA524646BFF00D474D4 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DA424646BFF00D474D4 /* Currencies.swift */; };
+		A0F59DA724646C1600D474D4 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DA624646C1600D474D4 /* Currency.swift */; };
+		A0F59DA9246476FF00D474D4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DA8246476FF00D474D4 /* APIClient.swift */; };
+		A0F59DAD24649D4E00D474D4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DAC24649D4E00D474D4 /* UseCase.swift */; };
+		A0F59DB024649D5600D474D4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DAF24649D5600D474D4 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +138,13 @@
 		A0F59D91246456CD00D474D4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		A0F59D93246458CA00D474D4 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		A0F59D95246463EF00D474D4 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
+		A0F59D9E24646AE200D474D4 /* GetCurrencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCurrencies.swift; sourceTree = "<group>"; };
+		A0F59DA224646B6800D474D4 /* SupportedCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedCurrency.swift; sourceTree = "<group>"; };
+		A0F59DA424646BFF00D474D4 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
+		A0F59DA624646C1600D474D4 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		A0F59DA8246476FF00D474D4 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A0F59DAC24649D4E00D474D4 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
+		A0F59DAF24649D5600D474D4 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +231,9 @@
 				A0F59D1B246451DD00D474D4 /* AppDelegate.swift */,
 				A0F59D1D246451DD00D474D4 /* SceneDelegate.swift */,
 				A0F59D22246451DD00D474D4 /* ContentView.swift */,
+				A0F59DAE24649D5600D474D4 /* General */,
+				A0F59D9C24646AE200D474D4 /* UseCase */,
+				A0F59DA124646B0600D474D4 /* Model */,
 				A0F59D24246451DE00D474D4 /* Assets.xcassets */,
 				A0F59D29246451DE00D474D4 /* LaunchScreen.storyboard */,
 				A0F59D2C246451DE00D474D4 /* Info.plist */,
@@ -248,6 +265,7 @@
 			children = (
 				A0F59D472464527F00D474D4 /* API.h */,
 				A0F59D482464527F00D474D4 /* Info.plist */,
+				A0F59DA8246476FF00D474D4 /* APIClient.swift */,
 				A0F59D8E246455E000D474D4 /* Engine */,
 				A0F59D88246453B800D474D4 /* Endpoint */,
 				A0F59D89246453B800D474D4 /* Model */,
@@ -314,6 +332,33 @@
 				A0F59D93246458CA00D474D4 /* Environment.swift */,
 			);
 			path = Engine;
+			sourceTree = "<group>";
+		};
+		A0F59D9C24646AE200D474D4 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				A0F59DAC24649D4E00D474D4 /* UseCase.swift */,
+				A0F59D9E24646AE200D474D4 /* GetCurrencies.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		A0F59DA124646B0600D474D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0F59DA224646B6800D474D4 /* SupportedCurrency.swift */,
+				A0F59DA424646BFF00D474D4 /* Currencies.swift */,
+				A0F59DA624646C1600D474D4 /* Currency.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A0F59DAE24649D5600D474D4 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				A0F59DAF24649D5600D474D4 /* Environment.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,10 +605,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F59DA724646C1600D474D4 /* Currency.swift in Sources */,
 				A0F59D1C246451DD00D474D4 /* AppDelegate.swift in Sources */,
 				A0F59D1E246451DD00D474D4 /* SceneDelegate.swift in Sources */,
+				A0F59DA324646B6800D474D4 /* SupportedCurrency.swift in Sources */,
 				A0F59D23246451DD00D474D4 /* ContentView.swift in Sources */,
+				A0F59DAD24649D4E00D474D4 /* UseCase.swift in Sources */,
 				A0F59D21246451DD00D474D4 /* ExpensesTest.xcdatamodeld in Sources */,
+				A0F59DB024649D5600D474D4 /* Environment.swift in Sources */,
+				A0F59DA524646BFF00D474D4 /* Currencies.swift in Sources */,
+				A0F59DA024646AE200D474D4 /* GetCurrencies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +635,7 @@
 				A0F59D90246455E000D474D4 /* Engine.swift in Sources */,
 				A0F59D92246456CD00D474D4 /* Endpoint.swift in Sources */,
 				A0F59D94246458CA00D474D4 /* Environment.swift in Sources */,
+				A0F59DA9246476FF00D474D4 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

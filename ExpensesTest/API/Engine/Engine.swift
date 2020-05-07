@@ -32,18 +32,17 @@ public struct Engine {
         dataTask?.cancel()
     }
     
-    mutating public func request<T: Decodable>(_ request: Request, completion: @escaping (Result<T, Error>) -> Void) throws {
-        let urlRequest = try makeRequest(with: request)
+    mutating public func request<T: Decodable>(_ endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) throws {
+        let urlRequest = try makeRequest(with: endpoint)
         dataTask = try makeDataTask(with: urlRequest, completion: completion)
         dataTask?.resume()
     }
     
-    private func makeRequest(with request: Request) throws -> URLRequest {
+    private func makeRequest(with endpoint: Endpoint) throws -> URLRequest {
         guard var components = URLComponents(string: environment.url) else {
             throw Error.badBaseUrl
         }
         
-        let endpoint = request.endpoint
         var parameters = endpoint.parameters ?? [String: String]()
         parameters["access_key"] = Key
         components.queryItems = endpoint.parameters?.map { (key, value) in
