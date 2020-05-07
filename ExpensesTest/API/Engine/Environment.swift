@@ -8,6 +8,20 @@
 
 import Foundation
 
-struct Environment {
+public enum Environment {
+    case dev
+    case pro
     
+    var baseUrl: String {
+        switch self {
+            case .dev:
+                return "http://api.currencylayer.com"
+            case .pro:
+                return "http://api.currencylayer.com" // I'd use https, but the free plan doesn't let me
+        }
+    }
+    
+    var url: String {
+        baseUrl + "/"
+    }
 }
