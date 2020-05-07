@@ -26,6 +26,11 @@
 		A0F59D7D246452A000D474D4 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D68246452A000D474D4 /* Storage.framework */; };
 		A0F59D7E246452A000D474D4 /* Storage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D68246452A000D474D4 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0F59D87246452D500D474D4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D86246452D500D474D4 /* CoreData.framework */; };
+		A0F59D8B246453CC00D474D4 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D8A246453CC00D474D4 /* Currency.swift */; };
+		A0F59D8D246455C600D474D4 /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D8C246455C600D474D4 /* ExchangeRate.swift */; };
+		A0F59D90246455E000D474D4 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D8F246455E000D474D4 /* Engine.swift */; };
+		A0F59D92246456CD00D474D4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D91246456CD00D474D4 /* Endpoint.swift */; };
+		A0F59D94246458CA00D474D4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D93246458CA00D474D4 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +126,11 @@
 		A0F59D77246452A000D474D4 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		A0F59D79246452A000D474D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0F59D86246452D500D474D4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		A0F59D8A246453CC00D474D4 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		A0F59D8C246455C600D474D4 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		A0F59D8F246455E000D474D4 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		A0F59D91246456CD00D474D4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		A0F59D93246458CA00D474D4 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +248,9 @@
 			children = (
 				A0F59D472464527F00D474D4 /* API.h */,
 				A0F59D482464527F00D474D4 /* Info.plist */,
+				A0F59D8E246455E000D474D4 /* Engine */,
+				A0F59D88246453B800D474D4 /* Endpoint */,
+				A0F59D89246453B800D474D4 /* Model */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -275,6 +288,32 @@
 				A0F59D86246452D500D474D4 /* CoreData.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A0F59D88246453B800D474D4 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				A0F59D91246456CD00D474D4 /* Endpoint.swift */,
+				A0F59D8C246455C600D474D4 /* ExchangeRate.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		A0F59D89246453B800D474D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0F59D8A246453CC00D474D4 /* Currency.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A0F59D8E246455E000D474D4 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				A0F59D8F246455E000D474D4 /* Engine.swift */,
+				A0F59D93246458CA00D474D4 /* Environment.swift */,
+			);
+			path = Engine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +469,7 @@
 					};
 					A0F59D442464527F00D474D4 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 					A0F59D4C2464527F00D474D4 = {
 						CreatedOnToolsVersion = 11.4;
@@ -539,6 +579,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F59D8D246455C600D474D4 /* ExchangeRate.swift in Sources */,
+				A0F59D90246455E000D474D4 /* Engine.swift in Sources */,
+				A0F59D92246456CD00D474D4 /* Endpoint.swift in Sources */,
+				A0F59D8B246453CC00D474D4 /* Currency.swift in Sources */,
+				A0F59D94246458CA00D474D4 /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,6 +779,7 @@
 		A0F59D3B246451DE00D474D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ExpensesTest/Preview Content\"";
@@ -754,6 +800,7 @@
 		A0F59D3C246451DE00D474D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ExpensesTest/Preview Content\"";
@@ -818,6 +865,7 @@
 		A0F59D5D2464527F00D474D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -835,6 +883,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lascorbe.API;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -845,6 +894,7 @@
 		A0F59D5E2464527F00D474D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
