@@ -8,6 +8,11 @@
 
 import Foundation
 
+/*
+ This endpoint will return the latest available exchange rates for the currencies specified
+ in the currencies parameter, all relative to the source currency, the default is USD (US Dollars).
+ */
+
 struct ExchangeRate: Endpoint {
     var path: String {
         return "live"
@@ -22,4 +27,10 @@ struct ExchangeRate: Endpoint {
     }
     
     let currencies: [String]
+    let source: String
+    
+    init(currencies: [String], source: String?) {
+        self.currencies = currencies
+        self.source = source ?? "USD"
+    }
 }
