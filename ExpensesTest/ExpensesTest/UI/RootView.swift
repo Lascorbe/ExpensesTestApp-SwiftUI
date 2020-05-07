@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  ExpensesTest
 //
 //  Created by Luis Ascorbe on 07/05/2020.
@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct RootView: View {
     @State private var selection = 0
- 
+    
     var body: some View {
         TabView(selection: $selection){
             Text("First View")
@@ -20,8 +20,8 @@ struct ContentView: View {
                         Image("first")
                         Text("First")
                     }
-                }
-                .tag(0)
+            }
+            .tag(0)
             Text("Second View")
                 .font(.title)
                 .tabItem {
@@ -29,14 +29,14 @@ struct ContentView: View {
                         Image("second")
                         Text("Second")
                     }
-                }
-                .tag(1)
+            }
+            .tag(1)
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        RootView()
     }
 }
