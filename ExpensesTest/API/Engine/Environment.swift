@@ -20,8 +20,4 @@ public enum Environment {
                 return "http://api.currencylayer.com" // I'd use https, but the free plan doesn't let me
         }
     }
-    
-    var url: String {
-        baseUrl + "/"
-    }
 }

@@ -10,4 +10,15 @@ import Foundation
 
 enum CurrencyCode: String {
     case USD, NZD
+    
+    init?(quote: String) {
+        switch quote {
+            case "USDNZD":
+                self = .NZD
+            case "USDUSD":
+                self = .USD
+            default:
+                return nil
+        }
+    }
 }

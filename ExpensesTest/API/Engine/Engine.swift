@@ -39,13 +39,15 @@ public struct Engine {
     }
     
     private func makeRequest(with endpoint: Endpoint) throws -> URLRequest {
-        guard var components = URLComponents(string: environment.url) else {
+        guard var components = URLComponents(string: environment.baseUrl) else {
             throw Error.badBaseUrl
         }
         
+        components.path = "/" + endpoint.path
+        
         var parameters = endpoint.parameters ?? [String: String]()
         parameters["access_key"] = Key
-        components.queryItems = endpoint.parameters?.map { (key, value) in
+        components.queryItems = parameters.map { (key, value) in
             URLQueryItem(name: key, value: value)
         }
         
@@ -55,6 +57,7 @@ public struct Engine {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endpoint.method.string
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         return urlRequest
     }
     

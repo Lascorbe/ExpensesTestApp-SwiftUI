@@ -16,7 +16,7 @@ final class GetCurrencies: UseCase {
         super.init(apiClient: client)
     }
     
-    func execute(valuesFor currencies: [CurrencyCode], completion: @escaping (Result<Currencies, Engine.Error>) -> Void) throws {
+    func execute(valuesFor currencies: [CurrencyCode] = [.USD, .NZD], completion: @escaping (Result<Currencies, Engine.Error>) -> Void) throws {
         let list = currencies.map { $0.rawValue }
         let endpoint = ExchangeRate(currencies: list)
         try client.sendRequest(with: endpoint) { result in
@@ -36,10 +36,10 @@ private extension Currencies {
         self.lastUpdate = Date(timeIntervalSince1970: apiCurrencies.timestamp)
         var quotes: [CurrencyCode: Currency] = [:]
         for (key, value) in apiCurrencies.quotes {
-            if let code = CurrencyCode(rawValue: key) {
+            if let code = CurrencyCode(quote: key) {
                 quotes[code] = Currency(code: code, value: value)
             } else {
-                preconditionFailure("CurrencyCode '\(key)' is not in the CurrencyCode enum")
+                assertionFailure("CurrencyCode '\(key)' is not in the CurrencyCode enum")
             }
         }
         self.list = quotes
