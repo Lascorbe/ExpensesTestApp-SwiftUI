@@ -9,10 +9,14 @@
 import Foundation
 
 public typealias Path = String
-public typealias Parameters = [String: Any]
+public typealias Parameters = [String: String]
 
-public enum HTTPMethod {
+public enum HTTPMethod: String {
     case get, post, put, patch, delete
+    
+    var string: String {
+        return rawValue.uppercased()
+    }
 }
 
 public protocol Endpoint {
@@ -22,14 +26,14 @@ public protocol Endpoint {
 }
 
 public enum Request {
-    case exchangeRate(currencies: [String])
+    case exchangeRate(currencies: [String], source: String?)
 }
 
 public extension Request {
     var endpoint: Endpoint {
         switch self {
-            case .exchangeRate(let currencies):
-                return ExchangeRate(currencies: currencies)
+            case .exchangeRate(let currencies, let source):
+                return ExchangeRate(currencies: currencies, source: source)
         }
     }
 }
