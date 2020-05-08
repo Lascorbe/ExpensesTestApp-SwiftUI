@@ -47,14 +47,6 @@ private struct Content<T: TransactionsPresenting>: View {
     }
 }
 
-struct ProductFamilyRowStyle: ButtonStyle {
-    func makeBody(configuration: Self.Configuration) -> some View {
-        configuration.label
-            .colorMultiply(configuration.isPressed ?
-                Color.white.opacity(0.5) : Color.white)
-    }
-}
-
 private struct Row: View {
     var transaction: TransactionViewModel
     
