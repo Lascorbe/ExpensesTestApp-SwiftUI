@@ -70,17 +70,23 @@ private struct Row: View {
                         Text("\(transaction.amountFormatted)")
                             .fontWeight(.bold)
                     }
-                    Spacer()
-                    if transaction.exchangeRate != nil {
-                        VStack(alignment: .trailing) {
-                            Text("\(transaction.exchangeRate!.amountFormatted)")
-                                .font(.system(size: 12))
-                            Text("Last update: \(transaction.exchangeRate!.dateFormatted)")
-                                .fontWeight(.light)
-                                .font(.system(size: 9))
-                        }
-                    }
                 }
+            }
+            if transaction.exchangeRate != nil {
+                HStack {
+                    Spacer()
+                    VStack(alignment: .trailing) {
+                        Text("\(transaction.exchangeRate!.amountFormatted)")
+                            .font(.system(size: 13))
+                        Text("Last update: \(transaction.exchangeRate!.dateFormatted)")
+                            .fontWeight(.light)
+                            .font(.system(size: 10))
+                    }
+                    .padding(.all, 5)
+                    .background(Color(white: 0.9))
+                    .cornerRadius(10)
+                }
+                .padding(.top)
             }
         }
         .padding()
