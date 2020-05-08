@@ -1,0 +1,18 @@
+//
+//  Expense.swift
+//  ExpensesTest
+//
+//  Created by Luis Ascorbe on 08/05/2020.
+//  Copyright © 2020 Luis Ascorbe. All rights reserved.
+//
+
+import Foundation
+
+typealias ExpenseId = String
+
+struct Expense {
+    let id: ExpenseId
+    let categoryId: CategoryId
+    let subject: String
+    let amount: Double
+}
