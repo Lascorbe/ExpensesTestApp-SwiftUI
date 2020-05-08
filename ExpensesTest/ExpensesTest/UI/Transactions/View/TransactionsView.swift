@@ -89,8 +89,19 @@ private struct Row: View {
     }
 }
 
+#if DEBUG
 struct TransactionsView_Previews: PreviewProvider {
-    private static var transactions: [TransactionViewModel] = {
+    
+    
+    static var previews: some View {
+        let view = TransactionsFactory.make(with: TransactionsViewModel(transactions: TransactionViewModel.dummy),
+                                            coordinator: NavigationTransactionsCoordinator())
+        return NavigationView { view }
+    }
+}
+
+private extension TransactionViewModel {
+    static var dummy: [TransactionViewModel] = {
         let category = CategoryViewModel(id: "catId", name: "Electronics", color: .blue, icon: "📱")
         var transactions = [TransactionViewModel]()
         let exchangeRate = TransactionViewModel.ExchangeRate(amount: 24, currencyCode: "NZD", date: Date())
@@ -101,10 +112,5 @@ struct TransactionsView_Previews: PreviewProvider {
         transactions.insert(TransactionViewModel(id: "5", category: category, date: Date(), subject: "Expense 5", amount: 20, currencyCode: "USD", exchangeRate: exchangeRate), at: 0)
         return transactions
     }()
-    
-    static var previews: some View {
-        let view = TransactionsFactory.make(with: TransactionsViewModel(transactions: transactions),
-                                            coordinator: NavigationTransactionsCoordinator())
-        return NavigationView { view }
-    }
 }
+#endif
