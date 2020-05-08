@@ -11,10 +11,11 @@ import SwiftUI
 struct RootView: View {
     @State private var selection = 0
     
+    let transactions = NavigationTransactionsCoordinator()
+    
     var body: some View {
         TabView(selection: $selection){
-            Text("First View")
-                .font(.title)
+            transactions.start()
                 .tabItem {
                     VStack {
                         Image("first")

@@ -6,4 +6,15 @@
 //  Copyright © 2020 Luis Ascorbe. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
+
+struct CategoriesViewModel: Hashable {
+    var categories: [CategoryViewModel]
+}
+
+struct CategoryViewModel: Hashable {
+    let id: CategoryId
+    let name: String
+    let color: Color
+    let icon: String
+}
