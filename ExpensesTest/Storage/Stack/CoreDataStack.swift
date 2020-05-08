@@ -23,17 +23,19 @@ class CoreDataStack {
         guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
             fatalError("Error initializing NSManagedObjectModel from: \(modelURL)")
         }
-        self.persistentContainer = {
-            let container = NSPersistentContainer(name: containerName, managedObjectModel: managedObjectModel)
-            container.loadPersistentStores(completionHandler: { (persistentStoreDescription, error) in
-                if let error = error as NSError? {
-                    print(error.localizedDescription)
-                    assertionFailure("NSPersistentContainer failed to load persistent stores")
-                }
-                print(persistentStoreDescription)
-            })
-            return container
-        }()
+        self.persistentContainer = NSPersistentContainer(name: containerName, managedObjectModel: managedObjectModel)
+    }
+    
+    func load(completion: @escaping (Error?) -> Void) {
+        persistentContainer.loadPersistentStores(completionHandler: { (persistentStoreDescription, error) in
+            if let error = error as NSError? {
+                print(error.localizedDescription)
+                assertionFailure("NSPersistentContainer failed to load persistent stores")
+                completion(error)
+            }
+            print(persistentStoreDescription)
+            completion(nil)
+        })
     }
 }
 

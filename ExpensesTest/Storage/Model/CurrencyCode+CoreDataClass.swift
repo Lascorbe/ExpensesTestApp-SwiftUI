@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(CurrencyCode)
+@objc(EXPCurrencyCode)
 public class CurrencyCode: NSManagedObject {
 
 }

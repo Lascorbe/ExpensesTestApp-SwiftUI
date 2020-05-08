@@ -9,8 +9,8 @@
 import Foundation
 
 public final class StorageClient {
-    public static func start() {
-        _ = StorageClient.shared
+    public static func start(completion: @escaping (Error?) -> Void) {
+        StorageClient.shared.load(completion: completion)
     }
     static let shared = StorageClient()
     
@@ -19,6 +19,10 @@ public final class StorageClient {
     init(coreDataStack: CoreDataStack = CoreDataStack(containerName: "Expenses")) {
         self.coreDataStack = coreDataStack
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: NSNotification.Name(rawValue: "sceneDidEnterBackground"), object: nil)
+    }
+    
+    func load(completion: @escaping (Error?) -> Void) {
+        coreDataStack.load(completion: completion)
     }
     
     @objc func save() throws {

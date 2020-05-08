@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Category" representedClassName="Category" syncable="YES">
+    <entity name="Category" representedClassName=".Category" syncable="YES">
         <attribute name="color" attributeType="String"/>
         <attribute name="icon" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
@@ -12,7 +12,7 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="CurrencyCode" representedClassName="CurrencyCode" syncable="YES">
+    <entity name="CurrencyCode" representedClassName=".CurrencyCode" syncable="YES">
         <attribute name="code" attributeType="String"/>
         <attribute name="rateValue" attributeType="Decimal" defaultValueString="0.0"/>
         <uniquenessConstraints>
@@ -21,7 +21,7 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="Expense" representedClassName="Expense" syncable="YES">
+    <entity name="Expense" representedClassName=".Expense" syncable="YES">
         <attribute name="amount" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="currencyCode" attributeType="String"/>
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
