@@ -6,4 +6,15 @@
 //  Copyright © 2020 Luis Ascorbe. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
+
+protocol CategoriesCoordinator: Coordinator {}
+
+struct NavigationCategoriesCoordinator: CategoriesCoordinator {
+    @discardableResult
+    func start() -> some View {
+        let view = CategoriesFactory.make(coordinator: self)
+        let navigation = NavigationView { view }
+        return navigation
+    }
+}

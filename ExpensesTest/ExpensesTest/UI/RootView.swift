@@ -12,6 +12,7 @@ struct RootView: View {
     @State private var selection = 0
     
     let transactions = NavigationTransactionsCoordinator()
+    let categories = NavigationCategoriesCoordinator()
     
     var body: some View {
         TabView(selection: $selection){
@@ -23,8 +24,7 @@ struct RootView: View {
                     }
             }
             .tag(0)
-            Text("Second View")
-                .font(.title)
+            categories.start()
                 .tabItem {
                     VStack {
                         Image("second")
