@@ -24,6 +24,9 @@
 		A060A27C2465DDE500E58A87 /* CategoryStorageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2792465DDE500E58A87 /* CategoryStorageClient.swift */; };
 		A060A27D2465DDE500E58A87 /* CurrencyStorageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A27A2465DDE500E58A87 /* CurrencyStorageClient.swift */; };
 		A060A27E2465DDE500E58A87 /* ExpenseStorageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A27B2465DDE500E58A87 /* ExpenseStorageClient.swift */; };
+		A060A2802465FD0F00E58A87 /* SetupStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A27F2465FD0F00E58A87 /* SetupStorage.swift */; };
+		A060A282246600AB00E58A87 /* Category+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A281246600AB00E58A87 /* Category+Mapper.swift */; };
+		A060A2842466020000E58A87 /* SetupCategoriesIfNeeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2832466020000E58A87 /* SetupCategoriesIfNeeded.swift */; };
 		A0D5C8072464A44300381F4D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FB2464A44300381F4D /* AppCoordinator.swift */; };
 		A0D5C8082464A44300381F4D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FC2464A44300381F4D /* RootView.swift */; };
 		A0D5C80A2464A44300381F4D /* TransactionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FF2464A44300381F4D /* TransactionsCoordinator.swift */; };
@@ -154,6 +157,9 @@
 		A060A2792465DDE500E58A87 /* CategoryStorageClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryStorageClient.swift; sourceTree = "<group>"; };
 		A060A27A2465DDE500E58A87 /* CurrencyStorageClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyStorageClient.swift; sourceTree = "<group>"; };
 		A060A27B2465DDE500E58A87 /* ExpenseStorageClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseStorageClient.swift; sourceTree = "<group>"; };
+		A060A27F2465FD0F00E58A87 /* SetupStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupStorage.swift; sourceTree = "<group>"; };
+		A060A281246600AB00E58A87 /* Category+Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Category+Mapper.swift"; sourceTree = "<group>"; };
+		A060A2832466020000E58A87 /* SetupCategoriesIfNeeded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupCategoriesIfNeeded.swift; sourceTree = "<group>"; };
 		A0D5C7FB2464A44300381F4D /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A0D5C7FC2464A44300381F4D /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A0D5C7FF2464A44300381F4D /* TransactionsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsCoordinator.swift; sourceTree = "<group>"; };
@@ -504,6 +510,8 @@
 			children = (
 				A0F59DAC24649D4E00D474D4 /* UseCase.swift */,
 				A0F59D9E24646AE200D474D4 /* GetCurrencies.swift */,
+				A060A27F2465FD0F00E58A87 /* SetupStorage.swift */,
+				A060A2832466020000E58A87 /* SetupCategoriesIfNeeded.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -512,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				A060A246246560AF00E58A87 /* Category.swift */,
+				A060A281246600AB00E58A87 /* Category+Mapper.swift */,
 				A060A247246560AF00E58A87 /* Expense.swift */,
 				A0F59DA224646B6800D474D4 /* CurrencyCode.swift */,
 				A0F59DA424646BFF00D474D4 /* Currencies.swift */,
@@ -794,12 +803,15 @@
 				A0D5C8262464A6B800381F4D /* TransactionsPresenter.swift in Sources */,
 				A0D5C80F2464A44300381F4D /* CategoriesCoordinator.swift in Sources */,
 				A0D5C8142464A50D00381F4D /* Presenter.swift in Sources */,
+				A060A2842466020000E58A87 /* SetupCategoriesIfNeeded.swift in Sources */,
 				A0D5C8082464A44300381F4D /* RootView.swift in Sources */,
 				A0F59DB024649D5600D474D4 /* Environment.swift in Sources */,
 				A0F59DA524646BFF00D474D4 /* Currencies.swift in Sources */,
+				A060A282246600AB00E58A87 /* Category+Mapper.swift in Sources */,
 				A0F59DA024646AE200D474D4 /* GetCurrencies.swift in Sources */,
 				A0D5C8252464A6B800381F4D /* TransactionsView.swift in Sources */,
 				A060A248246560AF00E58A87 /* Category.swift in Sources */,
+				A060A2802465FD0F00E58A87 /* SetupStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
