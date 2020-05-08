@@ -10,10 +10,10 @@ import Foundation
 import API
 
 final class GetCurrencies: UseCase {
-    private var client: ExchangeRateClient { apiClient as! ExchangeRateClient }
+    private let client: ExchangeRateClient
     
     init(client: ExchangeRateClient = ExchangeRateClient(engine: Engine(environment: generalEnvironment))) {
-        super.init(apiClient: client)
+        self.client = client
     }
     
     func execute(valuesFor currencies: [CurrencyCode] = [.USD, .NZD], completion: @escaping (Result<Currencies, Engine.Error>) -> Void) throws {
@@ -28,6 +28,10 @@ final class GetCurrencies: UseCase {
                     completion(.failure(error))
             }
         }
+    }
+    
+    func cancel() {
+        client.cancelOngoingRequest()
     }
 }
 

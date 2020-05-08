@@ -9,14 +9,4 @@
 import Foundation
 import API
 
-class UseCase {
-    private(set) var apiClient: APIClient
-    
-    init(apiClient: APIClient) {
-        self.apiClient = apiClient
-    }
-    
-    func cancel() {
-        apiClient.cancelOngoingRequest()
-    }
-}
+protocol UseCase {}
