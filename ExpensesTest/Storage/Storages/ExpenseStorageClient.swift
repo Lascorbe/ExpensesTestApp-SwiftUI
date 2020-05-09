@@ -11,7 +11,7 @@ import CoreData
 public final class ExpenseStorageClient {
     public typealias Model = Expense
     
-    public var context: NSManagedObjectContext { StorageClient.shared.coreDataStack.viewContext }
+    var context: NSManagedObjectContext { StorageClient.shared.coreDataStack.viewContext }
     
     public init() {}
     
@@ -36,8 +36,19 @@ public final class ExpenseStorageClient {
         try context.saveContext()
     }
     
+    public func add(list: [Model]) throws {
+        for model in list {
+            context.insert(model)
+        }
+        try context.saveContext()
+    }
+    
     public func remove(_ model: Model) throws {
         context.delete(model)
         try context.saveContext()
+    }
+    
+    public func makeModel() -> Model {
+        return Model(context: context)
     }
 }

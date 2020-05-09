@@ -36,7 +36,7 @@ private final class FulFillCategories: UseCase {
     }
     
     func execute() {
-        let categories = DefaultCategory.allCases.map { Storage.Category($0, context: client.context) }
+        let categories = DefaultCategory.allCases.map { client.makeModel().setup(with: $0) }
         do {
             try client.add(list: categories)
         } catch {
@@ -46,12 +46,12 @@ private final class FulFillCategories: UseCase {
 }
 
 private extension Storage.Category {
-    convenience init(_ defaultCategory: DefaultCategory, context: NSManagedObjectContext) {
-        self.init(context: context)
+    func setup(with defaultCategory: DefaultCategory) -> Storage.Category {
         self.id = defaultCategory.rawValue
         self.name = defaultCategory.rawValue
         self.color = defaultCategory.color
         self.icon = defaultCategory.icon
+        return self
     }
 }
 

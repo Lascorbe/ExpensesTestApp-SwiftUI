@@ -11,7 +11,7 @@ import CoreData
 public final class CategoryStorageClient {
     public typealias Model = Category
     
-    public var context: NSManagedObjectContext { StorageClient.shared.coreDataStack.viewContext }
+    var context: NSManagedObjectContext { StorageClient.shared.coreDataStack.viewContext }
     
     public init() {}
     
@@ -44,5 +44,9 @@ public final class CategoryStorageClient {
     public func remove(_ model: Model) throws {
         context.delete(model)
         try context.saveContext()
+    }
+    
+    public func makeModel() -> Model {
+        return Model(context: context)
     }
 }

@@ -11,7 +11,7 @@ import CoreData
 public final class CurrencyStorageClient {
     public typealias Model = CurrencyCode
     
-    public var context: NSManagedObjectContext { StorageClient.shared.coreDataStack.viewContext }
+    var context: NSManagedObjectContext { StorageClient.shared.coreDataStack.viewContext }
     
     public init() {}
     
@@ -44,5 +44,9 @@ public final class CurrencyStorageClient {
     public func remove(_ model: Model) throws {
         context.delete(model)
         try context.saveContext()
+    }
+    
+    public func makeModel() -> Model {
+        return Model(context: context)
     }
 }
