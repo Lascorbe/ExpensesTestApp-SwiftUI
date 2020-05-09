@@ -18,11 +18,11 @@ extension ExpensesTest.Category {
 }
 
 extension Storage.Category {
-    convenience init(_ category: ExpensesTest.Category) {
-        self.init()
+    func setup(with category: ExpensesTest.Category) -> Storage.Category {
         self.id = category.id
         self.name = category.name
         self.color = category.hexColor
         self.icon = category.icon
+        return self
     }
 }

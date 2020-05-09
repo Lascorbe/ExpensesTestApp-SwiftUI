@@ -23,12 +23,3 @@ final class GetCategories: UseCase {
         }
     }
 }
-
-private extension Category {
-    init(storageCategory: Storage.Category) {
-        self.id = storageCategory.id
-        self.name = storageCategory.name
-        self.hexColor = storageCategory.color
-        self.icon = storageCategory.icon
-    }
-}
