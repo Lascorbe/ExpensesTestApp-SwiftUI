@@ -20,6 +20,7 @@ final class TransactionsPresenter<C: TransactionsCoordinator>: Presenter<C>, Tra
     
     private let getExpenses = GetExpenses().execute
     private let saveExpense = SaveExpense().execute
+    private let removeExpense = RemoveExpense().execute
     
     init(viewModel: TransactionsViewModel, coordinator: C) {
         self.viewModel = viewModel
@@ -41,6 +42,9 @@ final class TransactionsPresenter<C: TransactionsCoordinator>: Presenter<C>, Tra
     }
     
     func remove(at index: Int) {
-        viewModel.transactions.remove(at: index)
+        guard viewModel.transactions.count > index else { return }
+        let expense = viewModel.transactions[index]
+        removeExpense(expense.id)
+        onAppear()
     }
 }

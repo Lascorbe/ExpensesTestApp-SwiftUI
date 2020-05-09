@@ -67,7 +67,7 @@ private struct Row: View {
             HStack {
                 Text(transaction.category.icon)
                 VStack(alignment: .leading) {
-                    Text(transaction.date)
+                    Text(transaction.dateString)
                         .fontWeight(.light)
                         .font(.system(size: 12))
                     Text(transaction.subject)
@@ -86,7 +86,7 @@ private struct Row: View {
                             VStack(alignment: .trailing) {
                                 Text("\(transaction.exchangeRate!.amount)")
                                     .font(.system(size: 13))
-                                Text("Last update: \(transaction.exchangeRate!.date)")
+                                Text("Last update: \(transaction.exchangeRate!.dateString)")
                                     .fontWeight(.light)
                                     .font(.system(size: 10))
                             }
@@ -118,14 +118,29 @@ private extension TransactionViewModel {
     static var dummy: [TransactionViewModel] = {
         let category = CategoryViewModel(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
         var transactions = [TransactionViewModel]()
-        let exchangeRate = TransactionViewModel.ExchangeRate(amount: "NZD 24", date: "34 minutes ago")
-        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense 1", amount: "USD 21.24", exchangeRate: exchangeRate), at: 0)
-        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense 2", amount: "NZD 1983"), at: 0)
-        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense 3", amount: "NZD 20.19"), at: 0)
-        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense 4", amount: "NZD 42.05"), at: 0)
+        let exchangeRate = TransactionViewModel.ExchangeRate(amount: "NZD 24", dateString: "34 minutes ago")
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 1", amount: "USD 21.24", exchangeRate: exchangeRate), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 2", amount: "NZD 1983"), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 3", amount: "NZD 20.19"), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 4", amount: "NZD 42.05"), at: 0)
         let category2 = CategoryViewModel(id: "catId", name: "Food", hexColor: "#cf6254", icon: "🍣")
-        transactions.insert(TransactionViewModel(id: UUID(), category: category2, date: "09/05/2020", subject: "Expense 5", amount: "USD 22", exchangeRate: exchangeRate), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category2, date: Date(), subject: "Expense 5", amount: "USD 22", exchangeRate: exchangeRate), at: 0)
         return transactions
     }()
+    
+    init(id: ExpenseId,
+         category: CategoryViewModel,
+         date: Date,
+         subject: String,
+         amount: String,
+         exchangeRate: ExchangeRate? = nil) {
+        self.id = id
+        self.category = category
+        self.date = date
+        self.dateString = dateFormatter.string(from: date)
+        self.subject = subject
+        self.amount = amount
+        self.exchangeRate = exchangeRate
+    }
 }
 #endif
