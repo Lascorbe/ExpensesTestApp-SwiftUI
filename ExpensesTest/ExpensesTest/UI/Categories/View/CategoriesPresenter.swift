@@ -12,7 +12,6 @@ protocol CategoriesPresenting: ObservableObject {
     var viewModel: CategoriesViewModel { get }
     func onAppear()
     func add()
-    func remove(at index: Int)
 }
 
 final class CategoriesPresenter<C: CategoriesCoordinator>: Presenter<C>, CategoriesPresenting {
@@ -35,9 +34,5 @@ final class CategoriesPresenter<C: CategoriesCoordinator>: Presenter<C>, Categor
         let id = viewModel.categories.count + 1
         let category = CategoryViewModel(id: "\(id)", name: "Category \(id)", color: .blue, icon: "📱")
         viewModel.categories.insert(category, at: 0)
-    }
-    
-    func remove(at index: Int) {
-        viewModel.categories.remove(at: index)
     }
 }

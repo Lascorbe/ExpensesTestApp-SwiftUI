@@ -19,7 +19,6 @@ struct CategoriesView<T: CategoriesPresenting>: View {
         Content(presenter: presenter)
             .navigationBarTitle(Text("Categories"))
             .navigationBarItems(
-                leading: EditButton(),
                 trailing: Button(
                     action: {
                         withAnimation {
@@ -43,8 +42,6 @@ private struct Content<T: CategoriesPresenting>: View {
         List {
             ForEach(presenter.viewModel.categories, id: \.self) { category in
                 Row(category: category)
-            }.onDelete { indices in
-                indices.forEach { self.presenter.remove(at: $0) }
             }
         }
     }
