@@ -7,45 +7,37 @@
 //
 
 import Foundation
-import API
+import Storage
 
 final class GetCurrencies: UseCase {
-    private let client: ExchangeRateClient
+    private let client: CurrencyStorageClient
     
-    init(client: ExchangeRateClient = ExchangeRateClient(engine: Engine(environment: generalEnvironment))) {
+    init(client: CurrencyStorageClient = CurrencyStorageClient()) {
         self.client = client
     }
     
-    func execute(valuesFor currencies: [CurrencyCode] = [.USD, .NZD], completion: @escaping (Result<Currencies, Engine.Error>) -> Void) throws {
-        let list = currencies.map { $0.rawValue }
-        let endpoint = ExchangeRate(currencies: list)
-        try client.sendRequest(with: endpoint) { result in
-            switch result {
-                case .success(let apiCurrencies):
-                    let mappedCurrencies = Currencies(apiCurrencies: apiCurrencies)
-                    completion(.success(mappedCurrencies))
-                case .failure(let error):
-                    completion(.failure(error))
-            }
+    func execute(completion: @escaping (Currencies?) -> Void) {
+        client.getCurrencies { currencyCodes in
+            let currencies = Currencies(currencyCodes: currencyCodes)
+            completion(currencies)
         }
-    }
-    
-    func cancel() {
-        client.cancelOngoingRequest()
     }
 }
 
 private extension Currencies {
-    init(apiCurrencies: API.Currencies) {
-        self.lastUpdate = Date(timeIntervalSince1970: apiCurrencies.timestamp)
-        var quotes: [CurrencyCode: Currency] = [:]
-        for (key, value) in apiCurrencies.quotes {
-            if let code = CurrencyCode(quote: key) {
-                quotes[code] = Currency(code: code, value: value)
-            } else {
-                assertionFailure("CurrencyCode '\(key)' is not in the CurrencyCode enum")
-            }
+    init?(currencyCodes: [Storage.CurrencyCode]) {
+        guard currencyCodes.count > 0 else { return nil }
+        self.lastUpdate = currencyCodes[0].date
+        self.list = currencyCodes.reduce(into: [CurrencyCode: Currency]()) {
+            let currency = Currency(currencyCode: $1)
+            return $0[currency.code] = currency
         }
-        self.list = quotes
+    }
+}
+
+private extension Currency {
+    init(currencyCode: Storage.CurrencyCode) {
+        self.code = CurrencyCode(rawValue: currencyCode.code)!
+        self.value = Double(truncating: currencyCode.rateValue)
     }
 }

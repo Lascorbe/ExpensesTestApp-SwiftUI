@@ -27,6 +27,9 @@
 		A060A2802465FD0F00E58A87 /* SetupStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A27F2465FD0F00E58A87 /* SetupStorage.swift */; };
 		A060A282246600AB00E58A87 /* Category+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A281246600AB00E58A87 /* Category+Mapper.swift */; };
 		A060A2842466020000E58A87 /* SetupCategoriesIfNeeded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2832466020000E58A87 /* SetupCategoriesIfNeeded.swift */; };
+		A060A2882466EC5F00E58A87 /* RequestCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2852466EC5F00E58A87 /* RequestCurrencies.swift */; };
+		A060A2892466EC5F00E58A87 /* UpdateCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2862466EC5F00E58A87 /* UpdateCurrencies.swift */; };
+		A060A28A2466EC5F00E58A87 /* SaveCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2872466EC5F00E58A87 /* SaveCurrencies.swift */; };
 		A0D5C8072464A44300381F4D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FB2464A44300381F4D /* AppCoordinator.swift */; };
 		A0D5C8082464A44300381F4D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FC2464A44300381F4D /* RootView.swift */; };
 		A0D5C80A2464A44300381F4D /* TransactionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FF2464A44300381F4D /* TransactionsCoordinator.swift */; };
@@ -160,6 +163,9 @@
 		A060A27F2465FD0F00E58A87 /* SetupStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupStorage.swift; sourceTree = "<group>"; };
 		A060A281246600AB00E58A87 /* Category+Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Category+Mapper.swift"; sourceTree = "<group>"; };
 		A060A2832466020000E58A87 /* SetupCategoriesIfNeeded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupCategoriesIfNeeded.swift; sourceTree = "<group>"; };
+		A060A2852466EC5F00E58A87 /* RequestCurrencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCurrencies.swift; sourceTree = "<group>"; };
+		A060A2862466EC5F00E58A87 /* UpdateCurrencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateCurrencies.swift; sourceTree = "<group>"; };
+		A060A2872466EC5F00E58A87 /* SaveCurrencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveCurrencies.swift; sourceTree = "<group>"; };
 		A0D5C7FB2464A44300381F4D /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A0D5C7FC2464A44300381F4D /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A0D5C7FF2464A44300381F4D /* TransactionsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsCoordinator.swift; sourceTree = "<group>"; };
@@ -510,6 +516,9 @@
 			children = (
 				A0F59DAC24649D4E00D474D4 /* UseCase.swift */,
 				A0F59D9E24646AE200D474D4 /* GetCurrencies.swift */,
+				A060A2852466EC5F00E58A87 /* RequestCurrencies.swift */,
+				A060A2872466EC5F00E58A87 /* SaveCurrencies.swift */,
+				A060A2862466EC5F00E58A87 /* UpdateCurrencies.swift */,
 				A060A27F2465FD0F00E58A87 /* SetupStorage.swift */,
 				A060A2832466020000E58A87 /* SetupCategoriesIfNeeded.swift */,
 			);
@@ -789,6 +798,7 @@
 				A0F59DA724646C1600D474D4 /* Currency.swift in Sources */,
 				A0F59D1C246451DD00D474D4 /* AppDelegate.swift in Sources */,
 				A0F59D1E246451DD00D474D4 /* SceneDelegate.swift in Sources */,
+				A060A2892466EC5F00E58A87 /* UpdateCurrencies.swift in Sources */,
 				A0F59DA324646B6800D474D4 /* CurrencyCode.swift in Sources */,
 				A060A24C246564F700E58A87 /* View+Navigation.swift in Sources */,
 				A0D5C8152464A50D00381F4D /* Coordinator.swift in Sources */,
@@ -803,12 +813,14 @@
 				A0D5C8262464A6B800381F4D /* TransactionsPresenter.swift in Sources */,
 				A0D5C80F2464A44300381F4D /* CategoriesCoordinator.swift in Sources */,
 				A0D5C8142464A50D00381F4D /* Presenter.swift in Sources */,
+				A060A28A2466EC5F00E58A87 /* SaveCurrencies.swift in Sources */,
 				A060A2842466020000E58A87 /* SetupCategoriesIfNeeded.swift in Sources */,
 				A0D5C8082464A44300381F4D /* RootView.swift in Sources */,
 				A0F59DB024649D5600D474D4 /* Environment.swift in Sources */,
 				A0F59DA524646BFF00D474D4 /* Currencies.swift in Sources */,
 				A060A282246600AB00E58A87 /* Category+Mapper.swift in Sources */,
 				A0F59DA024646AE200D474D4 /* GetCurrencies.swift in Sources */,
+				A060A2882466EC5F00E58A87 /* RequestCurrencies.swift in Sources */,
 				A0D5C8252464A6B800381F4D /* TransactionsView.swift in Sources */,
 				A060A248246560AF00E58A87 /* Category.swift in Sources */,
 				A060A2802465FD0F00E58A87 /* SetupStorage.swift in Sources */,

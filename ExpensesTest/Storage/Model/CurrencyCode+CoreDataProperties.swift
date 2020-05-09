@@ -19,5 +19,6 @@ extension CurrencyCode {
 
     @NSManaged public var code: String
     @NSManaged public var rateValue: NSDecimalNumber
+    @NSManaged public var date: Date
 
 }

@@ -14,6 +14,7 @@
     </entity>
     <entity name="CurrencyCode" representedClassName=".CurrencyCode" syncable="YES">
         <attribute name="code" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="rateValue" attributeType="Decimal" defaultValueString="0.0"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -37,6 +38,6 @@
     <elements>
         <element name="Expense" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="Category" positionX="-54" positionY="-9" width="128" height="118"/>
-        <element name="CurrencyCode" positionX="-36" positionY="63" width="128" height="73"/>
+        <element name="CurrencyCode" positionX="-36" positionY="63" width="128" height="88"/>
     </elements>
 </model>
