@@ -11,10 +11,10 @@ import Storage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    private let setupStorage = SetupStorage().execute
+    private let appLaunch = AppLaunch().execute
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupStorage()
+        appLaunch()
         return true
     }
 }
