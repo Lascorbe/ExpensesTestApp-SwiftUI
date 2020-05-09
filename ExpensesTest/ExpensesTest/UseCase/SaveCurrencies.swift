@@ -16,10 +16,11 @@ final class SaveCurrencies: UseCase {
         self.client = client
     }
     
-    func execute(currencies: Currencies) throws {
+    func execute(currencies: Currencies) {
         let currencyCodes = currencies.list.map { client.makeModel().setup(with: $1, date: currencies.lastUpdate) }
         do {
             try client.add(list: currencyCodes)
+            print("Currencies saved: \(currencyCodes)")
         } catch {
             assertionFailure("Error trying to fill database with currencies: \(error.localizedDescription)")
         }

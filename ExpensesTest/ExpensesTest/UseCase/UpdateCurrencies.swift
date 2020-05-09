@@ -17,19 +17,11 @@ final class UpdateCurrencies: UseCase {
             try request([.USD, .NZD]) { [weak self] result in
                 switch result {
                     case .success(let currencies):
-                        self?.executeSave(currencies)
+                        self?.save(currencies)
                     case .failure(let error):
                         print("Currency request failed: \(error)")
                 }
             }
-        } catch {
-            assertionFailure("Error trying to fill database with currencies: \(error.localizedDescription)")
-        }
-    }
-    
-    private func executeSave(_ currencies: Currencies) {
-        do {
-            try save(currencies)
         } catch {
             assertionFailure("Error trying to fill database with currencies: \(error.localizedDescription)")
         }

@@ -27,15 +27,16 @@ class CoreDataStack {
     }
     
     func load(completion: @escaping (Error?) -> Void) {
-        persistentContainer.loadPersistentStores(completionHandler: { (persistentStoreDescription, error) in
+        persistentContainer.loadPersistentStores { [weak self] (persistentStoreDescription, error) in
             if let error = error as NSError? {
                 print(error.localizedDescription)
                 assertionFailure("NSPersistentContainer failed to load persistent stores")
                 completion(error)
             }
             print(persistentStoreDescription)
+            self?.persistentContainer.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             completion(nil)
-        })
+        }
     }
 }
 
