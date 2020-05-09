@@ -19,6 +19,7 @@ final class TransactionsPresenter<C: TransactionsCoordinator>: Presenter<C>, Tra
     @Published private(set) var viewModel: TransactionsViewModel
     
     private let getExpenses = GetExpenses().execute
+    private let saveExpense = SaveExpense().execute
     
     init(viewModel: TransactionsViewModel, coordinator: C) {
         self.viewModel = viewModel
@@ -32,10 +33,11 @@ final class TransactionsPresenter<C: TransactionsCoordinator>: Presenter<C>, Tra
     }
     
     func add() {
-        let id = viewModel.transactions.count + 1
-        let category = CategoryViewModel(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
-        viewModel.transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense \(id)", amount: "USD 20.19"),
-                            at: 0)
+        let number = viewModel.transactions.count + 1
+        let category = Category(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
+        let model = Expense(id: UUID(), category: category, date: Date(), subject: "Expense \(number)", amount: 20.19, currencyCode: .USD)
+        saveExpense(model)
+        onAppear()
     }
     
     func remove(at index: Int) {

@@ -3,12 +3,12 @@
 //  Copyright © 2020 Luis Ascorbe. All rights reserved.
 //
 
-import SwiftUI
+import Foundation
 
 let dateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateStyle = .medium
-    dateFormatter.timeStyle = .medium
+    dateFormatter.dateStyle = .short
+    dateFormatter.timeStyle = .short
     return dateFormatter
 }()
 

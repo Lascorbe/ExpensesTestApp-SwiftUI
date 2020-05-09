@@ -67,12 +67,12 @@ private struct Row: View {
             HStack {
                 Text(transaction.category.icon)
                 VStack(alignment: .leading) {
-                    Text(transaction.subject)
-                        .fontWeight(.heavy)
-                        .foregroundColor(transaction.category.color)
                     Text(transaction.date)
                         .fontWeight(.light)
                         .font(.system(size: 12))
+                    Text(transaction.subject)
+                        .fontWeight(.heavy)
+                        .foregroundColor(transaction.category.color)
                 }
                 VStack(alignment: .trailing) {
                     HStack() {
