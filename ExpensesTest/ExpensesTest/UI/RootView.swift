@@ -16,19 +16,19 @@ struct RootView: View {
     
     var body: some View {
         TabView(selection: $selection){
-            transactions.start()
-                .tabItem {
-                    VStack {
-                        Image("first")
-                        Text("First")
-                    }
-            }
-            .tag(0)
             categories.start()
                 .tabItem {
                     VStack {
-                        Image("second")
-                        Text("Second")
+                        Image(systemName: "chart.pie")
+                        Text("Categories")
+                    }
+            }
+            .tag(0)
+            transactions.start()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "archivebox")
+                        Text("Transactions")
                     }
             }
             .tag(1)
