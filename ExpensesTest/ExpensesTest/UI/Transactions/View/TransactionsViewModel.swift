@@ -14,48 +14,55 @@ struct TransactionsViewModel: Hashable {
 
 struct TransactionViewModel: Hashable {
     struct ExchangeRate: Hashable {
-        let amount: Double
-        let currencyCode: String
-        let date: Date
-        
-        var amountFormatted: String {
-            return String.localizedStringWithFormat("%@ %.2f", currencyCode, amount)
-        }
-        
-        var dateFormatted: String {
-            return dateFormatter.string(from: date)
-        }
+        let amount: String
+        let date: String
     }
     
     let id: ExpenseId
     let category: CategoryViewModel
-    let date: Date
+    let date: String
     let subject: String
-    let amount: Double
-    let currencyCode: String
+    let amount: String
     let exchangeRate: ExchangeRate?
     
     init(id: ExpenseId,
          category: CategoryViewModel,
-         date: Date,
+         date: String,
          subject: String,
-         amount: Double,
-         currencyCode: String,
+         amount: String,
          exchangeRate: ExchangeRate? = nil) {
         self.id = id
         self.category = category
         self.date = date
         self.subject = subject
         self.amount = amount
-        self.currencyCode = currencyCode
         self.exchangeRate = exchangeRate
     }
-    
-    var amountFormatted: String {
-        return String.localizedStringWithFormat("%@ %.2f", currencyCode, amount)
+}
+
+// MARK: Mappers
+
+extension TransactionsViewModel {
+    init(_ models: [Expense]) {
+        self.transactions = models.map { TransactionViewModel($0) }
     }
-    
-    var dateFormatted: String {
-        return dateFormatter.string(from: date)
+}
+
+extension TransactionViewModel {
+    init(_ model: Expense) {
+        self.id = model.id
+        self.category = CategoryViewModel(model.category)
+        self.date = dateFormatter.string(from: model.date)
+        self.subject = model.subject
+        self.amount = String.localizedStringWithFormat("%@ %.2f", model.currencyCode.rawValue, model.amount)
+        self.exchangeRate = ExchangeRate(model.exchangeRate)
+    }
+}
+
+extension TransactionViewModel.ExchangeRate {
+    init?(_ model: Expense.ExchangeRate?) {
+        guard let model = model else { return nil }
+        self.amount = String.localizedStringWithFormat("%@ %.2f", model.currencyCode.rawValue, model.amount)
+        self.date = relativeDateFormatter.localizedString(for: model.date, relativeTo: Date())
     }
 }

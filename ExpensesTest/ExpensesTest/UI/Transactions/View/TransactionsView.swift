@@ -29,7 +29,10 @@ struct TransactionsView<T: TransactionsPresenting>: View {
                 ) {
                     Image(systemName: "plus")
                 }
-        )
+            )
+            .onAppear {
+                self.presenter.onAppear()
+            }
     }
 }
 
@@ -37,11 +40,20 @@ private struct Content<T: TransactionsPresenting>: View {
     @ObservedObject var presenter: T
     
     var body: some View {
-        List {
-            ForEach(presenter.viewModel.transactions, id: \.self) { transaction in
-                Row(transaction: transaction)
-            }.onDelete { indices in
-                indices.forEach { self.presenter.remove(at: $0) }
+        Group {
+            if presenter.viewModel.transactions.count == 0 {
+                Text("You can add a expense from the + button above.")
+                    .multilineTextAlignment(.center)
+                    .font(.headline)
+                    .padding(.horizontal)
+            } else {
+                List {
+                    ForEach(presenter.viewModel.transactions, id: \.self) { transaction in
+                        Row(transaction: transaction)
+                    }.onDelete { indices in
+                        indices.forEach { self.presenter.remove(at: $0) }
+                    }
+                }
             }
         }
     }
@@ -53,40 +65,38 @@ private struct Row: View {
     var body: some View {
         VStack {
             HStack {
-                Spacer()
-                Text(transaction.dateFormatted)
-                    .fontWeight(.light)
-                    .font(.system(size: 12))
-                    .padding(.bottom)
-            }
-            HStack {
                 Text(transaction.category.icon)
-                Text(transaction.subject)
-                    .fontWeight(.heavy)
-                    .foregroundColor(transaction.category.color)
+                VStack(alignment: .leading) {
+                    Text(transaction.subject)
+                        .fontWeight(.heavy)
+                        .foregroundColor(transaction.category.color)
+                    Text(transaction.date)
+                        .fontWeight(.light)
+                        .font(.system(size: 12))
+                }
                 VStack(alignment: .trailing) {
                     HStack() {
                         Spacer()
-                        Text("\(transaction.amountFormatted)")
+                        Text("\(transaction.amount)")
                             .fontWeight(.bold)
                     }
-                }
-            }
-            if transaction.exchangeRate != nil {
-                HStack {
-                    Spacer()
-                    VStack(alignment: .trailing) {
-                        Text("\(transaction.exchangeRate!.amountFormatted)")
-                            .font(.system(size: 13))
-                        Text("Last update: \(transaction.exchangeRate!.dateFormatted)")
-                            .fontWeight(.light)
-                            .font(.system(size: 10))
+                    if transaction.exchangeRate != nil {
+                        HStack {
+                            Spacer()
+                            VStack(alignment: .trailing) {
+                                Text("\(transaction.exchangeRate!.amount)")
+                                    .font(.system(size: 13))
+                                Text("Last update: \(transaction.exchangeRate!.date)")
+                                    .fontWeight(.light)
+                                    .font(.system(size: 10))
+                            }
+                            .padding(.all, 5)
+                            .background(Color(white: 0.9))
+                            .cornerRadius(10)
+                        }
+                        .padding(.top, 10)
                     }
-                    .padding(.all, 5)
-                    .background(Color(white: 0.9))
-                    .cornerRadius(10)
                 }
-                .padding(.top)
             }
         }
         .padding()
@@ -108,12 +118,13 @@ private extension TransactionViewModel {
     static var dummy: [TransactionViewModel] = {
         let category = CategoryViewModel(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
         var transactions = [TransactionViewModel]()
-        let exchangeRate = TransactionViewModel.ExchangeRate(amount: 24, currencyCode: "NZD", date: Date())
-        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 1", amount: 20.19, currencyCode: "USD", exchangeRate: exchangeRate), at: 0)
-        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 2", amount: 42.01, currencyCode: "NZD"), at: 0)
-        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 3", amount: 1234, currencyCode: "NZD"), at: 0)
-        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 4", amount: 1983, currencyCode: "NZD"), at: 0)
-        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 5", amount: 20, currencyCode: "USD", exchangeRate: exchangeRate), at: 0)
+        let exchangeRate = TransactionViewModel.ExchangeRate(amount: "NZD 24", date: "34 minutes ago")
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense 1", amount: "USD 21.24", exchangeRate: exchangeRate), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense 2", amount: "NZD 1983"), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense 3", amount: "NZD 20.19"), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense 4", amount: "NZD 42.05"), at: 0)
+        let category2 = CategoryViewModel(id: "catId", name: "Food", hexColor: "#cf6254", icon: "🍣")
+        transactions.insert(TransactionViewModel(id: UUID(), category: category2, date: "09/05/2020", subject: "Expense 5", amount: "USD 22", exchangeRate: exchangeRate), at: 0)
         return transactions
     }()
 }

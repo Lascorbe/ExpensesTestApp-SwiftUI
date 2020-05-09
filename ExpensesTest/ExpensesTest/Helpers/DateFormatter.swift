@@ -11,3 +11,9 @@ let dateFormatter: DateFormatter = {
     dateFormatter.timeStyle = .medium
     return dateFormatter
 }()
+
+let relativeDateFormatter: RelativeDateTimeFormatter = {
+    let formatter = RelativeDateTimeFormatter()
+    formatter.unitsStyle = .full
+    return formatter
+}()

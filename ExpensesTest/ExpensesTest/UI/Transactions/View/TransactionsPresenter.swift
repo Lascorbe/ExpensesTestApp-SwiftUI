@@ -10,6 +10,7 @@ import Foundation
 
 protocol TransactionsPresenting: ObservableObject {
     var viewModel: TransactionsViewModel { get }
+    func onAppear()
     func add()
     func remove(at index: Int)
 }
@@ -17,15 +18,23 @@ protocol TransactionsPresenting: ObservableObject {
 final class TransactionsPresenter<C: TransactionsCoordinator>: Presenter<C>, TransactionsPresenting {
     @Published private(set) var viewModel: TransactionsViewModel
     
+    private let getExpenses = GetExpenses().execute
+    
     init(viewModel: TransactionsViewModel, coordinator: C) {
         self.viewModel = viewModel
         super.init(coordinator: coordinator)
     }
     
+    func onAppear() {
+        getExpenses { [weak self] expenses in
+            self?.viewModel = TransactionsViewModel(expenses)
+        }
+    }
+    
     func add() {
         let id = viewModel.transactions.count + 1
         let category = CategoryViewModel(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
-        viewModel.transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense \(id)", amount: 20.19, currencyCode: "USD"),
+        viewModel.transactions.insert(TransactionViewModel(id: UUID(), category: category, date: "09/05/2020", subject: "Expense \(id)", amount: "USD 20.19"),
                             at: 0)
     }
     
