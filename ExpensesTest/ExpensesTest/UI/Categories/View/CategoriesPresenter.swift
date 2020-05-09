@@ -10,6 +10,7 @@ import Foundation
 
 protocol CategoriesPresenting: ObservableObject {
     var viewModel: CategoriesViewModel { get }
+    func onAppear()
     func add()
     func remove(at index: Int)
 }
@@ -17,9 +18,17 @@ protocol CategoriesPresenting: ObservableObject {
 final class CategoriesPresenter<C: CategoriesCoordinator>: Presenter<C>, CategoriesPresenting {
     @Published private(set) var viewModel: CategoriesViewModel
     
+    private let getCategories = GetCategories().execute
+    
     init(viewModel: CategoriesViewModel, coordinator: C) {
         self.viewModel = viewModel
         super.init(coordinator: coordinator)
+    }
+    
+    func onAppear() {
+        getCategories { [weak self] categories in
+            self?.viewModel = CategoriesViewModel(categories)
+        }
     }
     
     func add() {

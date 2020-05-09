@@ -29,7 +29,10 @@ struct CategoriesView<T: CategoriesPresenting>: View {
                 ) {
                     Image(systemName: "plus")
                 }
-        )
+            )
+            .onAppear {
+                self.presenter.onAppear()
+            }
     }
 }
 

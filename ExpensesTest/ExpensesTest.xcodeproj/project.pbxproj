@@ -31,6 +31,8 @@
 		A060A2892466EC5F00E58A87 /* UpdateCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2862466EC5F00E58A87 /* UpdateCurrencies.swift */; };
 		A060A28A2466EC5F00E58A87 /* SaveCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2872466EC5F00E58A87 /* SaveCurrencies.swift */; };
 		A060A28C2466F50E00E58A87 /* AppLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A28B2466F50E00E58A87 /* AppLaunch.swift */; };
+		A060A28E2466FFD200E58A87 /* GetCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A28D2466FFD200E58A87 /* GetCategories.swift */; };
+		A060A290246701E900E58A87 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A28F246701E900E58A87 /* Color+Hex.swift */; };
 		A0D5C8072464A44300381F4D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FB2464A44300381F4D /* AppCoordinator.swift */; };
 		A0D5C8082464A44300381F4D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FC2464A44300381F4D /* RootView.swift */; };
 		A0D5C80A2464A44300381F4D /* TransactionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FF2464A44300381F4D /* TransactionsCoordinator.swift */; };
@@ -168,6 +170,8 @@
 		A060A2862466EC5F00E58A87 /* UpdateCurrencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateCurrencies.swift; sourceTree = "<group>"; };
 		A060A2872466EC5F00E58A87 /* SaveCurrencies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveCurrencies.swift; sourceTree = "<group>"; };
 		A060A28B2466F50E00E58A87 /* AppLaunch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLaunch.swift; sourceTree = "<group>"; };
+		A060A28D2466FFD200E58A87 /* GetCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetCategories.swift; sourceTree = "<group>"; };
+		A060A28F246701E900E58A87 /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		A0D5C7FB2464A44300381F4D /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A0D5C7FC2464A44300381F4D /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A0D5C7FF2464A44300381F4D /* TransactionsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsCoordinator.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 		A060A24A246564F700E58A87 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A060A28F246701E900E58A87 /* Color+Hex.swift */,
 				A060A24B246564F700E58A87 /* View+Navigation.swift */,
 				A060A24F2465A96700E58A87 /* RowStyle.swift */,
 				A060A24D2465711800E58A87 /* DateFormatter.swift */,
@@ -518,6 +523,7 @@
 			children = (
 				A0F59DAC24649D4E00D474D4 /* UseCase.swift */,
 				A060A28B2466F50E00E58A87 /* AppLaunch.swift */,
+				A060A28D2466FFD200E58A87 /* GetCategories.swift */,
 				A0F59D9E24646AE200D474D4 /* GetCurrencies.swift */,
 				A060A2852466EC5F00E58A87 /* RequestCurrencies.swift */,
 				A060A2872466EC5F00E58A87 /* SaveCurrencies.swift */,
@@ -811,6 +817,7 @@
 				A0D5C80A2464A44300381F4D /* TransactionsCoordinator.swift in Sources */,
 				A0D5C81E2464A6A500381F4D /* CategoriesFactory.swift in Sources */,
 				A060A249246560AF00E58A87 /* Expense.swift in Sources */,
+				A060A290246701E900E58A87 /* Color+Hex.swift in Sources */,
 				A0D5C8242464A6B800381F4D /* TransactionsViewModel.swift in Sources */,
 				A0F59DAD24649D4E00D474D4 /* UseCase.swift in Sources */,
 				A0D5C8262464A6B800381F4D /* TransactionsPresenter.swift in Sources */,
@@ -825,6 +832,7 @@
 				A060A28C2466F50E00E58A87 /* AppLaunch.swift in Sources */,
 				A0F59DA024646AE200D474D4 /* GetCurrencies.swift in Sources */,
 				A060A2882466EC5F00E58A87 /* RequestCurrencies.swift in Sources */,
+				A060A28E2466FFD200E58A87 /* GetCategories.swift in Sources */,
 				A0D5C8252464A6B800381F4D /* TransactionsView.swift in Sources */,
 				A060A248246560AF00E58A87 /* Category.swift in Sources */,
 				A060A2802465FD0F00E58A87 /* SetupStorage.swift in Sources */,

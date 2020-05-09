@@ -18,3 +18,20 @@ struct CategoryViewModel: Hashable {
     let color: Color
     let icon: String
 }
+
+// MARK: Mappers
+
+extension CategoriesViewModel {
+    init(_ categories: [Category]) {
+        self.categories = categories.map { CategoryViewModel($0) }
+    }
+}
+
+extension CategoryViewModel {
+    init(_ category: Category) {
+        self.id = category.id
+        self.name = category.name
+        self.color = Color(hex: category.hexColor)
+        self.icon = category.icon
+    }
+}
