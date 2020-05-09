@@ -15,8 +15,17 @@ struct CategoriesViewModel: Hashable {
 struct CategoryViewModel: Hashable {
     let id: CategoryId
     let name: String
+    let hexColor: String
     let color: Color
     let icon: String
+    
+    init(id: CategoryId, name: String, hexColor: String, icon: String) {
+        self.id = id
+        self.name = name
+        self.hexColor = hexColor
+        self.color = Color(hex: hexColor)
+        self.icon = icon
+    }
 }
 
 // MARK: Mappers
@@ -29,9 +38,15 @@ extension CategoriesViewModel {
 
 extension CategoryViewModel {
     init(_ category: Category) {
-        self.id = category.id
-        self.name = category.name
-        self.color = Color(hex: category.hexColor)
-        self.icon = category.icon
+        self = .init(id: category.id, name: category.name, hexColor: category.hexColor, icon: category.icon)
+    }
+}
+
+extension Category {
+    init(_ categoryViewModel: CategoryViewModel) {
+        self.id = categoryViewModel.id
+        self.name = categoryViewModel.name
+        self.hexColor = categoryViewModel.hexColor
+        self.icon = categoryViewModel.icon
     }
 }

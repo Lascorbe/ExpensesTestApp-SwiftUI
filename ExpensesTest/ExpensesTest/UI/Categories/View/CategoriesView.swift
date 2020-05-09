@@ -78,11 +78,11 @@ struct CategoriesView_Previews: PreviewProvider {
 private extension CategoryViewModel {
     static var dummy: [CategoryViewModel] = {
         var categories = [CategoryViewModel]()
-        categories.append(CategoryViewModel(id: "1", name: "Electronics", color: .blue, icon: "📱"))
-        categories.append(CategoryViewModel(id: "2", name: "Fashion", color: .blue, icon: "👘"))
-        categories.append(CategoryViewModel(id: "3", name: "Sports", color: .blue, icon: "🏊‍♂️"))
-        categories.append(CategoryViewModel(id: "4", name: "Real Estate", color: .blue, icon: "🏡"))
-        categories.append(CategoryViewModel(id: "5", name: "Vehicle", color: .blue, icon: "🛵"))
+        categories.append(CategoryViewModel(id: "1", name: "Electronics", hexColor: "#2d2d2d", icon: "📱"))
+        categories.append(CategoryViewModel(id: "2", name: "Fashion", hexColor: "#2d2d2d", icon: "👘"))
+        categories.append(CategoryViewModel(id: "3", name: "Sports", hexColor: "#2d2d2d", icon: "🏊‍♂️"))
+        categories.append(CategoryViewModel(id: "4", name: "Real Estate", hexColor: "#2d2d2d", icon: "🏡"))
+        categories.append(CategoryViewModel(id: "5", name: "Vehicle", hexColor: "#2d2d2d", icon: "🛵"))
         return categories
     }()
 }

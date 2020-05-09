@@ -108,7 +108,7 @@ struct TransactionsView_Previews: PreviewProvider {
 
 private extension TransactionViewModel {
     static var dummy: [TransactionViewModel] = {
-        let category = CategoryViewModel(id: "catId", name: "Electronics", color: .blue, icon: "📱")
+        let category = CategoryViewModel(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
         var transactions = [TransactionViewModel]()
         let exchangeRate = TransactionViewModel.ExchangeRate(amount: 24, currencyCode: "NZD", date: Date())
         transactions.insert(TransactionViewModel(id: "1", category: category, date: Date(), subject: "Expense 1", amount: 20.19, currencyCode: "USD", exchangeRate: exchangeRate), at: 0)

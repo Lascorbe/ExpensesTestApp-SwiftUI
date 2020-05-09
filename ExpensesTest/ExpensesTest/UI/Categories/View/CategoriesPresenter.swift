@@ -18,6 +18,7 @@ final class CategoriesPresenter<C: CategoriesCoordinator>: Presenter<C>, Categor
     @Published private(set) var viewModel: CategoriesViewModel
     
     private let getCategories = GetCategories().execute
+    private let saveCategory = SaveCategory().execute
     
     init(viewModel: CategoriesViewModel, coordinator: C) {
         self.viewModel = viewModel
@@ -32,7 +33,8 @@ final class CategoriesPresenter<C: CategoriesCoordinator>: Presenter<C>, Categor
     
     func add() {
         let id = viewModel.categories.count + 1
-        let category = CategoryViewModel(id: "\(id)", name: "Category \(id)", color: .blue, icon: "📱")
-        viewModel.categories.insert(category, at: 0)
+        let category = CategoryViewModel(id: "\(id)", name: "Category \(id)", hexColor: "#2d2d2d", icon: "📱")
+        saveCategory(Category(category))
+        onAppear()
     }
 }
