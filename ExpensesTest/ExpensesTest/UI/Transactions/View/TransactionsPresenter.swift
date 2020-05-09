@@ -25,7 +25,7 @@ final class TransactionsPresenter<C: TransactionsCoordinator>: Presenter<C>, Tra
     func add() {
         let id = viewModel.transactions.count + 1
         let category = CategoryViewModel(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
-        viewModel.transactions.insert(TransactionViewModel(id: "\(id)", category: category, date: Date(), subject: "Expense \(id)", amount: 20.19, currencyCode: "USD"),
+        viewModel.transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense \(id)", amount: 20.19, currencyCode: "USD"),
                             at: 0)
     }
     

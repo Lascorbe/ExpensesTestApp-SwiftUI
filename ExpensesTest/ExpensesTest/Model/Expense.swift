@@ -8,11 +8,20 @@
 
 import Foundation
 
-typealias ExpenseId = String
+typealias ExpenseId = UUID
 
 struct Expense {
+    struct ExchangeRate: Hashable {
+        let amount: Double
+        let currencyCode: CurrencyCode
+        let date: Date
+    }
+    
     let id: ExpenseId
-    let categoryId: CategoryId
+    let category: Category
+    let date: Date
     let subject: String
     let amount: Double
+    let currencyCode: CurrencyCode
+    var exchangeRate: ExchangeRate?
 }

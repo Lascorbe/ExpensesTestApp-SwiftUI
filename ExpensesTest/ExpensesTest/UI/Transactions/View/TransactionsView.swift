@@ -97,8 +97,6 @@ private struct Row: View {
 
 #if DEBUG
 struct TransactionsView_Previews: PreviewProvider {
-    
-    
     static var previews: some View {
         let view = TransactionsFactory.make(with: TransactionsViewModel(transactions: TransactionViewModel.dummy),
                                             coordinator: NavigationTransactionsCoordinator())
@@ -111,11 +109,11 @@ private extension TransactionViewModel {
         let category = CategoryViewModel(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
         var transactions = [TransactionViewModel]()
         let exchangeRate = TransactionViewModel.ExchangeRate(amount: 24, currencyCode: "NZD", date: Date())
-        transactions.insert(TransactionViewModel(id: "1", category: category, date: Date(), subject: "Expense 1", amount: 20.19, currencyCode: "USD", exchangeRate: exchangeRate), at: 0)
-        transactions.insert(TransactionViewModel(id: "2", category: category, date: Date(), subject: "Expense 2", amount: 42.01, currencyCode: "NZD"), at: 0)
-        transactions.insert(TransactionViewModel(id: "3", category: category, date: Date(), subject: "Expense 3", amount: 1234, currencyCode: "NZD"), at: 0)
-        transactions.insert(TransactionViewModel(id: "4", category: category, date: Date(), subject: "Expense 4", amount: 1983, currencyCode: "NZD"), at: 0)
-        transactions.insert(TransactionViewModel(id: "5", category: category, date: Date(), subject: "Expense 5", amount: 20, currencyCode: "USD", exchangeRate: exchangeRate), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 1", amount: 20.19, currencyCode: "USD", exchangeRate: exchangeRate), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 2", amount: 42.01, currencyCode: "NZD"), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 3", amount: 1234, currencyCode: "NZD"), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 4", amount: 1983, currencyCode: "NZD"), at: 0)
+        transactions.insert(TransactionViewModel(id: UUID(), category: category, date: Date(), subject: "Expense 5", amount: 20, currencyCode: "USD", exchangeRate: exchangeRate), at: 0)
         return transactions
     }()
 }
