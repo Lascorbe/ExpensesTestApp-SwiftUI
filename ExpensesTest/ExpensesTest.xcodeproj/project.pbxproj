@@ -38,6 +38,7 @@
 		A060A296246710D500E58A87 /* Expense+Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A295246710D500E58A87 /* Expense+Mapper.swift */; };
 		A060A2982467199500E58A87 /* GetExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2972467199500E58A87 /* GetExchangeRate.swift */; };
 		A060A29A2467687400E58A87 /* SaveExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A2992467687400E58A87 /* SaveExpense.swift */; };
+		A060A29C24676DD000E58A87 /* RemoveExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A29B24676DD000E58A87 /* RemoveExpense.swift */; };
 		A0D5C8072464A44300381F4D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FB2464A44300381F4D /* AppCoordinator.swift */; };
 		A0D5C8082464A44300381F4D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FC2464A44300381F4D /* RootView.swift */; };
 		A0D5C80A2464A44300381F4D /* TransactionsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5C7FF2464A44300381F4D /* TransactionsCoordinator.swift */; };
@@ -182,6 +183,7 @@
 		A060A295246710D500E58A87 /* Expense+Mapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Expense+Mapper.swift"; sourceTree = "<group>"; };
 		A060A2972467199500E58A87 /* GetExchangeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetExchangeRate.swift; sourceTree = "<group>"; };
 		A060A2992467687400E58A87 /* SaveExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveExpense.swift; sourceTree = "<group>"; };
+		A060A29B24676DD000E58A87 /* RemoveExpense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveExpense.swift; sourceTree = "<group>"; };
 		A0D5C7FB2464A44300381F4D /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A0D5C7FC2464A44300381F4D /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		A0D5C7FF2464A44300381F4D /* TransactionsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsCoordinator.swift; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 				A0F59D9E24646AE200D474D4 /* GetCurrencies.swift */,
 				A060A2972467199500E58A87 /* GetExchangeRate.swift */,
 				A060A2932467108E00E58A87 /* GetExpenses.swift */,
+				A060A29B24676DD000E58A87 /* RemoveExpense.swift */,
 				A060A2852466EC5F00E58A87 /* RequestCurrencies.swift */,
 				A060A291246703D100E58A87 /* SaveCategory.swift */,
 				A060A2872466EC5F00E58A87 /* SaveCurrencies.swift */,
@@ -833,6 +836,7 @@
 				A0D5C80A2464A44300381F4D /* TransactionsCoordinator.swift in Sources */,
 				A0D5C81E2464A6A500381F4D /* CategoriesFactory.swift in Sources */,
 				A060A249246560AF00E58A87 /* Expense.swift in Sources */,
+				A060A29C24676DD000E58A87 /* RemoveExpense.swift in Sources */,
 				A060A2942467108E00E58A87 /* GetExpenses.swift in Sources */,
 				A060A290246701E900E58A87 /* Color+Hex.swift in Sources */,
 				A0D5C8242464A6B800381F4D /* TransactionsViewModel.swift in Sources */,
