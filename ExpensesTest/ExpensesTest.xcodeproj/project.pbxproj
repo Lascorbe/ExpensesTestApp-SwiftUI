@@ -64,7 +64,7 @@
 		A0F59D25246451DE00D474D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0F59D24246451DE00D474D4 /* Assets.xcassets */; };
 		A0F59D28246451DE00D474D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0F59D27246451DE00D474D4 /* Preview Assets.xcassets */; };
 		A0F59D2B246451DE00D474D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0F59D29246451DE00D474D4 /* LaunchScreen.storyboard */; };
-		A0F59D36246451DE00D474D4 /* ExpensesTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D35246451DE00D474D4 /* ExpensesTestTests.swift */; };
+		A0F59D36246451DE00D474D4 /* GetExchangeRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D35246451DE00D474D4 /* GetExchangeRateTests.swift */; };
 		A0F59D4E2464527F00D474D4 /* API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D452464527F00D474D4 /* API.framework */; };
 		A0F59D572464527F00D474D4 /* API.h in Headers */ = {isa = PBXBuildFile; fileRef = A0F59D472464527F00D474D4 /* API.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0F59D5A2464527F00D474D4 /* API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D452464527F00D474D4 /* API.framework */; };
@@ -220,7 +220,7 @@
 		A0F59D2A246451DE00D474D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0F59D2C246451DE00D474D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0F59D31246451DE00D474D4 /* ExpensesTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpensesTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0F59D35246451DE00D474D4 /* ExpensesTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesTestTests.swift; sourceTree = "<group>"; };
+		A0F59D35246451DE00D474D4 /* GetExchangeRateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExchangeRateTests.swift; sourceTree = "<group>"; };
 		A0F59D37246451DE00D474D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0F59D452464527F00D474D4 /* API.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = API.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F59D472464527F00D474D4 /* API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
@@ -484,7 +484,7 @@
 		A0F59D34246451DE00D474D4 /* ExpensesTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				A0F59D35246451DE00D474D4 /* ExpensesTestTests.swift */,
+				A0F59D35246451DE00D474D4 /* GetExchangeRateTests.swift */,
 				A0F59D37246451DE00D474D4 /* Info.plist */,
 			);
 			path = ExpensesTestTests;
@@ -925,7 +925,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0F59D36246451DE00D474D4 /* ExpensesTestTests.swift in Sources */,
+				A0F59D36246451DE00D474D4 /* GetExchangeRateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
