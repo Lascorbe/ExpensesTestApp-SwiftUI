@@ -9,7 +9,6 @@
 import UIKit
 import Storage
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     private let appLaunch = AppLaunch().execute
     

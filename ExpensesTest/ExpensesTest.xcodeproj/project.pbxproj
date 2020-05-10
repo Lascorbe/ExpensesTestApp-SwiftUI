@@ -88,6 +88,8 @@
 		A0F59DB024649D5600D474D4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DAF24649D5600D474D4 /* Environment.swift */; };
 		A0F63B582468B56500DD352D /* CategoryStorageClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F63B572468B56500DD352D /* CategoryStorageClientTests.swift */; };
 		A0F63B5A2468B57E00DD352D /* ExchangeRateEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F63B592468B57E00DD352D /* ExchangeRateEndpointTests.swift */; };
+		A0F63B632468B5E100DD352D /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F63B612468B5E100DD352D /* TestingAppDelegate.swift */; };
+		A0F63B642468B5E100DD352D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F63B622468B5E100DD352D /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +247,8 @@
 		A0F59DAF24649D5600D474D4 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		A0F63B572468B56500DD352D /* CategoryStorageClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryStorageClientTests.swift; sourceTree = "<group>"; };
 		A0F63B592468B57E00DD352D /* ExchangeRateEndpointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRateEndpointTests.swift; sourceTree = "<group>"; };
+		A0F63B612468B5E100DD352D /* TestingAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
+		A0F63B622468B5E100DD352D /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +468,7 @@
 				A0F59D29246451DE00D474D4 /* LaunchScreen.storyboard */,
 				A0F59D2C246451DE00D474D4 /* Info.plist */,
 				A0F59D26246451DE00D474D4 /* Preview Content */,
+				A0F63B602468B5E100DD352D /* SupportingFiles */,
 			);
 			path = ExpensesTest;
 			sourceTree = "<group>";
@@ -605,6 +610,15 @@
 				A0F59DAF24649D5600D474D4 /* Environment.swift */,
 			);
 			path = General;
+			sourceTree = "<group>";
+		};
+		A0F63B602468B5E100DD352D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A0F63B612468B5E100DD352D /* TestingAppDelegate.swift */,
+				A0F63B622468B5E100DD352D /* main.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -868,7 +882,9 @@
 				A060A29A2467687400E58A87 /* SaveExpense.swift in Sources */,
 				A060A24C246564F700E58A87 /* View+Navigation.swift in Sources */,
 				A02286D9246849F700444A32 /* AddExpenseFactory.swift in Sources */,
+				A0F63B632468B5E100DD352D /* TestingAppDelegate.swift in Sources */,
 				A0D5C8152464A50D00381F4D /* Coordinator.swift in Sources */,
+				A0F63B642468B5E100DD352D /* main.swift in Sources */,
 				A0D5C81D2464A6A500381F4D /* CategoriesPresenter.swift in Sources */,
 				A0D5C81C2464A6A500381F4D /* CategoriesView.swift in Sources */,
 				A02286DD246858B600444A32 /* AddExpenseViewModel.swift in Sources */,
