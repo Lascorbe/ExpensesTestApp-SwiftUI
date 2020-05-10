@@ -12,11 +12,11 @@ public final class StorageClient {
     public static func start(completion: @escaping (Error?) -> Void) {
         StorageClient.shared.load(completion: completion)
     }
-    static let shared = StorageClient()
+    public static let shared = StorageClient()
     
     let coreDataStack: CoreDataStack
     
-    init(coreDataStack: CoreDataStack = CoreDataStack(containerName: "Expenses")) {
+    init(coreDataStack: CoreDataStack = CoreDataStack()) {
         self.coreDataStack = coreDataStack
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: NSNotification.Name(rawValue: "sceneDidEnterBackground"), object: nil)
     }

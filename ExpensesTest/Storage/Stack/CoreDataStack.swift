@@ -15,9 +15,9 @@ class CoreDataStack {
     private let containerName: String
     private let persistentContainer: NSPersistentContainer
     
-    init(containerName: String) {
+    init(containerName: String = "Expenses") {
         self.containerName = containerName
-        guard let modelURL = Bundle(for: Self.self).url(forResource: containerName, withExtension: "momd") else {
+        guard let modelURL = Bundle(for: CoreDataStack.self).url(forResource: containerName, withExtension: "momd") else {
             fatalError("Error loading model from bundle")
         }
         guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
@@ -41,7 +41,7 @@ class CoreDataStack {
 }
 
 extension NSManagedObjectContext {
-    func saveContext() throws {
+    @objc func saveContext() throws {
         guard hasChanges else { return }
         try save()
     }

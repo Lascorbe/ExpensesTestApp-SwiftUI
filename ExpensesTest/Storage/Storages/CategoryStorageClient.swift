@@ -11,9 +11,13 @@ import CoreData
 public final class CategoryStorageClient {
     public typealias Model = Category
     
-    var context: NSManagedObjectContext { StorageClient.shared.coreDataStack.viewContext }
+    var context: NSManagedObjectContext { storageClient.coreDataStack.viewContext }
     
-    public init() {}
+    private let storageClient: StorageClient
+    
+    public init(storageClient: StorageClient = StorageClient.shared) {
+        self.storageClient = storageClient
+    }
     
     public func getCategories(completion: @escaping ([Model]) -> Void) {
         let fetchRequest = NSFetchRequest<Model>(entityName: Model.entity().name ?? "Category")

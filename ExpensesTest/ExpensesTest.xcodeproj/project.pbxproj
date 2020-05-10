@@ -66,12 +66,10 @@
 		A0F59D2B246451DE00D474D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0F59D29246451DE00D474D4 /* LaunchScreen.storyboard */; };
 		A0F59D36246451DE00D474D4 /* ExpensesTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D35246451DE00D474D4 /* ExpensesTestTests.swift */; };
 		A0F59D4E2464527F00D474D4 /* API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D452464527F00D474D4 /* API.framework */; };
-		A0F59D552464527F00D474D4 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D542464527F00D474D4 /* APITests.swift */; };
 		A0F59D572464527F00D474D4 /* API.h in Headers */ = {isa = PBXBuildFile; fileRef = A0F59D472464527F00D474D4 /* API.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0F59D5A2464527F00D474D4 /* API.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D452464527F00D474D4 /* API.framework */; };
 		A0F59D5B2464527F00D474D4 /* API.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D452464527F00D474D4 /* API.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A0F59D71246452A000D474D4 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D68246452A000D474D4 /* Storage.framework */; };
-		A0F59D78246452A000D474D4 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59D77246452A000D474D4 /* StorageTests.swift */; };
 		A0F59D7A246452A000D474D4 /* Storage.h in Headers */ = {isa = PBXBuildFile; fileRef = A0F59D6A246452A000D474D4 /* Storage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0F59D7D246452A000D474D4 /* Storage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D68246452A000D474D4 /* Storage.framework */; };
 		A0F59D7E246452A000D474D4 /* Storage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0F59D68246452A000D474D4 /* Storage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -88,6 +86,8 @@
 		A0F59DA9246476FF00D474D4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DA8246476FF00D474D4 /* APIClient.swift */; };
 		A0F59DAD24649D4E00D474D4 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DAC24649D4E00D474D4 /* UseCase.swift */; };
 		A0F59DB024649D5600D474D4 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F59DAF24649D5600D474D4 /* Environment.swift */; };
+		A0F63B582468B56500DD352D /* CategoryStorageClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F63B572468B56500DD352D /* CategoryStorageClientTests.swift */; };
+		A0F63B5A2468B57E00DD352D /* ExchangeRateEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F63B592468B57E00DD352D /* ExchangeRateEndpointTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,13 +224,11 @@
 		A0F59D472464527F00D474D4 /* API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		A0F59D482464527F00D474D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0F59D4D2464527F00D474D4 /* APITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0F59D542464527F00D474D4 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 		A0F59D562464527F00D474D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0F59D68246452A000D474D4 /* Storage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Storage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F59D6A246452A000D474D4 /* Storage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Storage.h; sourceTree = "<group>"; };
 		A0F59D6B246452A000D474D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0F59D70246452A000D474D4 /* StorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0F59D77246452A000D474D4 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		A0F59D79246452A000D474D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0F59D86246452D500D474D4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		A0F59D8C246455C600D474D4 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
@@ -245,6 +243,8 @@
 		A0F59DA8246476FF00D474D4 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		A0F59DAC24649D4E00D474D4 /* UseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		A0F59DAF24649D5600D474D4 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		A0F63B572468B56500DD352D /* CategoryStorageClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryStorageClientTests.swift; sourceTree = "<group>"; };
+		A0F63B592468B57E00DD352D /* ExchangeRateEndpointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeRateEndpointTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,7 +501,7 @@
 		A0F59D532464527F00D474D4 /* APITests */ = {
 			isa = PBXGroup;
 			children = (
-				A0F59D542464527F00D474D4 /* APITests.swift */,
+				A0F63B592468B57E00DD352D /* ExchangeRateEndpointTests.swift */,
 				A0F59D562464527F00D474D4 /* Info.plist */,
 			);
 			path = APITests;
@@ -524,7 +524,7 @@
 		A0F59D76246452A000D474D4 /* StorageTests */ = {
 			isa = PBXGroup;
 			children = (
-				A0F59D77246452A000D474D4 /* StorageTests.swift */,
+				A0F63B572468B56500DD352D /* CategoryStorageClientTests.swift */,
 				A0F59D79246452A000D474D4 /* Info.plist */,
 			);
 			path = StorageTests;
@@ -764,6 +764,7 @@
 					};
 					A0F59D4C2464527F00D474D4 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 						TestTargetID = A0F59D17246451DD00D474D4;
 					};
 					A0F59D67246452A000D474D4 = {
@@ -772,6 +773,7 @@
 					};
 					A0F59D6F246452A000D474D4 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 						TestTargetID = A0F59D17246451DD00D474D4;
 					};
 				};
@@ -928,7 +930,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0F59D552464527F00D474D4 /* APITests.swift in Sources */,
+				A0F63B5A2468B57E00DD352D /* ExchangeRateEndpointTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,7 +957,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0F59D78246452A000D474D4 /* StorageTests.swift in Sources */,
+				A0F63B582468B56500DD352D /* CategoryStorageClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1272,6 +1274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GEJCTZ27CM;
 				INFOPLIST_FILE = APITests/Info.plist;
@@ -1282,6 +1285,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lascorbe.APITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExpensesTest.app/ExpensesTest";
@@ -1292,6 +1296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GEJCTZ27CM;
 				INFOPLIST_FILE = APITests/Info.plist;
@@ -1369,6 +1374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GEJCTZ27CM;
 				INFOPLIST_FILE = StorageTests/Info.plist;
@@ -1379,6 +1385,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lascorbe.StorageTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExpensesTest.app/ExpensesTest";
@@ -1389,6 +1396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GEJCTZ27CM;
 				INFOPLIST_FILE = StorageTests/Info.plist;

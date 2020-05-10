@@ -11,9 +11,13 @@ import CoreData
 public final class CurrencyStorageClient {
     public typealias Model = CurrencyCode
     
-    var context: NSManagedObjectContext { StorageClient.shared.coreDataStack.viewContext }
+    var context: NSManagedObjectContext { storageClient.coreDataStack.viewContext }
     
-    public init() {}
+    private let storageClient: StorageClient
+    
+    public init(storageClient: StorageClient = StorageClient.shared) {
+        self.storageClient = storageClient
+    }
     
     public func getCurrencies(completion: @escaping ([Model]) -> Void) {
         let fetchRequest = NSFetchRequest<Model>(entityName: Model.entity().name ?? "CurrencyCode")

@@ -11,9 +11,13 @@ import CoreData
 public final class ExpenseStorageClient {
     public typealias Model = Expense
     
-    var context: NSManagedObjectContext { StorageClient.shared.coreDataStack.viewContext }
+    var context: NSManagedObjectContext { storageClient.coreDataStack.viewContext }
     
-    public init() {}
+    private let storageClient: StorageClient
+    
+    public init(storageClient: StorageClient = StorageClient.shared) {
+        self.storageClient = storageClient
+    }
     
     public func getExpensesByDate(_ ascending: Bool = false, completion: @escaping ([Model]) -> Void) {
         let sortDescriptor = NSSortDescriptor(keyPath: \Model.date, ascending: ascending)
