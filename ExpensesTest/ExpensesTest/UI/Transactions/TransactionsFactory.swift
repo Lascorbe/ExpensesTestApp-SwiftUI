@@ -9,7 +9,7 @@
 import SwiftUI
 
 enum TransactionsFactory {
-    static func make<T: TransactionsCoordinator>(with viewModel: TransactionsViewModel = TransactionsViewModel(transactions: []), coordinator: T) -> some View {
+    static func make<T: TransactionsCoordinator>(with viewModel: TransactionsViewModel = TransactionsViewModel([]), coordinator: T) -> some View {
         let presenter = TransactionsPresenter(viewModel: viewModel,
                                               coordinator: coordinator)
         let view = TransactionsView(presenter: presenter)

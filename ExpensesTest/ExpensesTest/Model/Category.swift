@@ -10,7 +10,7 @@ import Foundation
 
 typealias CategoryId = String
 
-struct Category {
+struct Category: Hashable {
     let id: CategoryId
     let name: String
     let hexColor: String

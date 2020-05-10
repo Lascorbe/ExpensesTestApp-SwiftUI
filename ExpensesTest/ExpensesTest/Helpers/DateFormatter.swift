@@ -5,7 +5,27 @@
 
 import Foundation
 
-let dateFormatter: DateFormatter = {
+let dayDateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .medium
+    dateFormatter.timeStyle = .none
+    return dateFormatter
+}()
+
+let monthDateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MMM yyyy"
+    return dateFormatter
+}()
+
+let detailDayDateFormatter: DateFormatter = {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .none
+    dateFormatter.timeStyle = .short
+    return dateFormatter
+}()
+
+let detailMonthDateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
     dateFormatter.dateStyle = .short
     dateFormatter.timeStyle = .short

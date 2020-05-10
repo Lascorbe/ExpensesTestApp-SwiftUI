@@ -10,7 +10,7 @@ import Foundation
 
 typealias ExpenseId = UUID
 
-struct Expense {
+struct Expense: Hashable {
     struct ExchangeRate: Hashable {
         let amount: Double
         let currencyCode: CurrencyCode

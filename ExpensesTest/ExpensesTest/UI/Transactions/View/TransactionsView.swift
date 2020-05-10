@@ -41,22 +41,49 @@ private struct Content<T: TransactionsPresenting>: View {
     @ObservedObject var presenter: T
     
     var body: some View {
-        Group {
-            if presenter.viewModel.transactions.count == 0 {
+        VStack(spacing: 0) {
+            if presenter.viewModel.transactionsGrouped.count == 0 {
                 Text("You can add a expense from the + button above.")
                     .multilineTextAlignment(.center)
                     .font(.headline)
                     .padding(.horizontal)
             } else {
+                GroupByView(groupBy: $presenter.groupBy)
+                Divider()
                 List {
-                    ForEach(presenter.viewModel.transactions, id: \.self) { transaction in
-                        Row(transaction: transaction)
-                    }.onDelete { indices in
-                        indices.forEach { self.presenter.remove(at: $0) }
+                    ForEach(presenter.viewModel.transactionsGrouped, id: \.self) { group in
+                        Section(header: Text(group.dateString)) {
+                            ForEach(group.transactions, id: \.self) { transaction in
+                                Row(transaction: transaction)
+                            }.onDelete { indices in
+                                indices.forEach { self.presenter.remove(at: $0, in: group) }
+                            }
+                        }
                     }
                 }
+                .listStyle(GroupedListStyle())
             }
         }
+    }
+}
+
+struct GroupByView: View {
+    @Binding var groupBy: TransactionsViewModel.GroupBy
+    
+    private let groupByCases = TransactionsViewModel.GroupBy.allCases
+    
+    var body: some View {
+        HStack {
+            Text("Group by")
+            Picker(selection: $groupBy, label: Text("Group by")) {
+                ForEach(groupByCases, id: \.rawValue) { groupByCase in
+                    Text(groupByCase == .day ? "Day" : "Month").tag(groupByCase)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+        }
+        .padding(.all)
+        .frame(height: 64)
     }
 }
 
@@ -109,7 +136,9 @@ private struct Row: View {
 #if DEBUG
 struct TransactionsView_Previews: PreviewProvider {
     static var previews: some View {
-        let view = TransactionsFactory.make(with: TransactionsViewModel(transactions: TransactionViewModel.dummy),
+        var model = TransactionsViewModel([])
+        model.transactionsGrouped = [TransactionsViewModel.Group(dateString: "27 January", transactions: TransactionViewModel.dummy)]
+        let view = TransactionsFactory.make(with: model,
                                             coordinator: NavigationTransactionsCoordinator())
         return NavigationView { view }
     }
@@ -138,7 +167,7 @@ private extension TransactionViewModel {
         self.id = id
         self.category = category
         self.date = date
-        self.dateString = dateFormatter.string(from: date)
+        self.dateString = detailDayDateFormatter.string(from: date)
         self.subject = subject
         self.amount = amount
         self.exchangeRate = exchangeRate
