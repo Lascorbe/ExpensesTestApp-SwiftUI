@@ -10,11 +10,16 @@ import SwiftUI
 
 protocol AddExpenseCoordinator: Coordinator {}
 
-struct NavigationAddExpenseCoordinator: AddExpenseCoordinator {
-    @discardableResult
+struct ModalAddExpenseCoordinator: AddExpenseCoordinator {
+    private var isPresented: Binding<Bool>
+    
+    init(isPresented: Binding<Bool>) {
+        self.isPresented = isPresented
+    }
+    
     func start() -> some View {
         let view = AddExpenseFactory.make(coordinator: self)
-        let navigation = NavigationView { view }
-        return navigation
+        let destination = NavigationView { view }
+        return ModalLinkWrapper(destination: destination, isPresented: isPresented)
     }
 }

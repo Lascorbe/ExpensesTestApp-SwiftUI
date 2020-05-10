@@ -11,7 +11,6 @@ import SwiftUI
 protocol CategoriesCoordinator: Coordinator {}
 
 struct NavigationCategoriesCoordinator: CategoriesCoordinator {
-    @discardableResult
     func start() -> some View {
         let view = CategoriesFactory.make(coordinator: self)
         let navigation = NavigationView { view }

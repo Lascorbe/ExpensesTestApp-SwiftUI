@@ -11,6 +11,8 @@ import SwiftUI
 struct TransactionsView<T: TransactionsPresenting>: View {
     @ObservedObject private var presenter: T
     
+    @State private var isPresented: Bool = false
+    
     init(presenter: T) {
         self.presenter = presenter
     }
@@ -20,19 +22,18 @@ struct TransactionsView<T: TransactionsPresenting>: View {
             .navigationBarTitle(Text("Transactions"))
             .navigationBarItems(
                 leading: EditButton(),
-                trailing: Button(
-                    action: {
-                        withAnimation {
-                            self.presenter.add()
-                        }
-                }
-                ) {
-                    Image(systemName: "plus")
-                }
+                trailing: addButton
             )
             .onAppear {
                 self.presenter.onAppear()
             }
+    }
+    
+    private var addButton: some View {
+        NavigationButton(contentView: Image(systemName: "plus"),
+                         navigationView: { isPresented in
+                            self.presenter.add(isPresented: isPresented)
+        })
     }
 }
 

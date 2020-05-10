@@ -6,12 +6,13 @@
 //  Copyright © 2020 Luis Ascorbe. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 protocol TransactionsPresenting: ObservableObject {
+    associatedtype U: View
     var viewModel: TransactionsViewModel { get }
     func onAppear()
-    func add()
+    func add(isPresented: Binding<Bool>) -> U
     func remove(at index: Int)
 }
 
@@ -33,12 +34,8 @@ final class TransactionsPresenter<C: TransactionsCoordinator>: Presenter<C>, Tra
         }
     }
     
-    func add() {
-        let number = viewModel.transactions.count + 1
-        let category = Category(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
-        let model = Expense(id: UUID(), category: category, date: Date(), subject: "Expense \(number)", amount: 20.19, currencyCode: .USD)
-        saveExpense(model)
-        onAppear()
+    func add(isPresented: Binding<Bool>) -> some View {
+        return coordinator?.presentAddExpense(isPresented: isPresented)
     }
     
     func remove(at index: Int) {

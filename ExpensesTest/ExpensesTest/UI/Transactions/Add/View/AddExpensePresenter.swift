@@ -12,7 +12,7 @@ protocol AddExpensePresenting: ObservableObject {
     var viewModel: AddExpenseViewModel { get }
     func onAppear()
     func onCancel(presentationMode: Binding<PresentationMode>)
-    func onSave(presentationMode: Binding<PresentationMode>)
+    func onSave(presentationMode: Binding<PresentationMode>, formViewModel: FormAddExpenseViewModel)
 }
 
 final class AddExpensePresenter<C: AddExpenseCoordinator>: Presenter<C>, AddExpensePresenting {
@@ -37,11 +37,11 @@ final class AddExpensePresenter<C: AddExpenseCoordinator>: Presenter<C>, AddExpe
         presentationMode.wrappedValue.dismiss()
     }
     
-    func onSave(presentationMode: Binding<PresentationMode>) {
-//        let number = viewModel.AddExpense.count + 1
-//        let category = Category(id: "catId", name: "Electronics", hexColor: "#2d2d2d", icon: "📱")
-//        let model = Expense(id: UUID(), category: category, date: Date(), subject: "Expense \(number)", amount: 20.19, currencyCode: .USD)
-//        saveExpense(model)
-//        onAppear()
+    func onSave(presentationMode: Binding<PresentationMode>, formViewModel: FormAddExpenseViewModel) {
+        let category = Category(formViewModel.category)
+        let currencyCode = CurrencyCode(rawValue: formViewModel.currencyCode)!
+        let model = Expense(id: UUID(), category: category, date: formViewModel.date, subject: formViewModel.subject, amount: formViewModel.amount, currencyCode: currencyCode)
+        saveExpense(model)
+        presentationMode.wrappedValue.dismiss()
     }
 }
