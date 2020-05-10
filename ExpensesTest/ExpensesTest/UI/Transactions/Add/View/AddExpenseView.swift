@@ -71,19 +71,13 @@ private struct Content<T: AddExpensePresenting>: View {
                 }
                 
                 Picker(selection: $category, label: Text("Category")) {
-                    ForEach(Category.allCases) { category in
-                        Text(category.rawValue.capitalized).tag(category)
-                    }
-                }
-                Picker(selection: $category, label: Text("Category")) {
                     ForEach(presenter.viewModel.categories, id: \.id) { category in
                         HStack {
                             Text(category.icon)
                             Text(category.name)
                                 .fontWeight(.heavy)
                                 .foregroundColor(category.color)
-                            Spacer()
-                        }.tag(category)
+                        }.tag(Optional(category))
                     }
                 }
                 

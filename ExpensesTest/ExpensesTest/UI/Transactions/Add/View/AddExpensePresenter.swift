@@ -42,6 +42,8 @@ final class AddExpensePresenter<C: AddExpenseCoordinator>: Presenter<C>, AddExpe
         let currencyCode = CurrencyCode(rawValue: formViewModel.currencyCode)!
         let model = Expense(id: UUID(), category: category, date: formViewModel.date, subject: formViewModel.subject, amount: formViewModel.amount, currencyCode: currencyCode)
         saveExpense(model)
+        // onAppear doesn't get fired when coming back from a modal, so we have to notify it
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "didAddExpense"), object: nil)
         presentationMode.wrappedValue.dismiss()
     }
 }

@@ -26,9 +26,10 @@ final class TransactionsPresenter<C: TransactionsCoordinator>: Presenter<C>, Tra
     init(viewModel: TransactionsViewModel, coordinator: C) {
         self.viewModel = viewModel
         super.init(coordinator: coordinator)
+        NotificationCenter.default.addObserver(self, selector: #selector(onAppear), name: NSNotification.Name(rawValue: "didAddExpense"), object: nil)
     }
     
-    func onAppear() {
+    @objc func onAppear() {
         getExpenses { [weak self] expenses in
             self?.viewModel = TransactionsViewModel(expenses)
         }

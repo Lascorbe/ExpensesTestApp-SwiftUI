@@ -48,7 +48,7 @@ private final class FulFillCategories: UseCase {
 private extension Storage.Category {
     func setup(with defaultCategory: DefaultCategory) -> Storage.Category {
         self.id = defaultCategory.rawValue
-        self.name = defaultCategory.rawValue
+        self.name = defaultCategory.rawValue.capitalized
         self.color = defaultCategory.color
         self.icon = defaultCategory.icon
         return self
