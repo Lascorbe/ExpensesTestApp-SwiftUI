@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum CurrencyCode: String {
+enum CurrencyCode: String, CaseIterable {
     case USD, NZD
     
     init?(quote: String) {

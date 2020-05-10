@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A02286D5246849F700444A32 /* AddExpenseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02286CF246849F700444A32 /* AddExpenseCoordinator.swift */; };
+		A02286D7246849F700444A32 /* AddExpensePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02286D2246849F700444A32 /* AddExpensePresenter.swift */; };
+		A02286D8246849F700444A32 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02286D3246849F700444A32 /* AddExpenseView.swift */; };
+		A02286D9246849F700444A32 /* AddExpenseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02286D4246849F700444A32 /* AddExpenseFactory.swift */; };
+		A02286DB24684C3700444A32 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02286DA24684C3700444A32 /* NumberFormatter.swift */; };
+		A02286DD246858B600444A32 /* AddExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02286DC246858B500444A32 /* AddExpenseViewModel.swift */; };
 		A060A248246560AF00E58A87 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A246246560AF00E58A87 /* Category.swift */; };
 		A060A249246560AF00E58A87 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A247246560AF00E58A87 /* Expense.swift */; };
 		A060A24C246564F700E58A87 /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060A24B246564F700E58A87 /* View+Navigation.swift */; };
@@ -152,6 +158,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A02286CF246849F700444A32 /* AddExpenseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseCoordinator.swift; sourceTree = "<group>"; };
+		A02286D2246849F700444A32 /* AddExpensePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpensePresenter.swift; sourceTree = "<group>"; };
+		A02286D3246849F700444A32 /* AddExpenseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
+		A02286D4246849F700444A32 /* AddExpenseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseFactory.swift; sourceTree = "<group>"; };
+		A02286DA24684C3700444A32 /* NumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
+		A02286DC246858B500444A32 /* AddExpenseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModel.swift; sourceTree = "<group>"; };
 		A060A246246560AF00E58A87 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A060A247246560AF00E58A87 /* Expense.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		A060A24B246564F700E58A87 /* View+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
@@ -286,6 +298,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A02286CE246849F700444A32 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				A02286CF246849F700444A32 /* AddExpenseCoordinator.swift */,
+				A02286D4246849F700444A32 /* AddExpenseFactory.swift */,
+				A02286D0246849F700444A32 /* View */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		A02286D0246849F700444A32 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A02286D2246849F700444A32 /* AddExpensePresenter.swift */,
+				A02286D3246849F700444A32 /* AddExpenseView.swift */,
+				A02286DC246858B500444A32 /* AddExpenseViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A060A24A246564F700E58A87 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +325,7 @@
 				A060A24B246564F700E58A87 /* View+Navigation.swift */,
 				A060A24F2465A96700E58A87 /* RowStyle.swift */,
 				A060A24D2465711800E58A87 /* DateFormatter.swift */,
+				A02286DA24684C3700444A32 /* NumberFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -345,6 +378,7 @@
 				A0D5C7FF2464A44300381F4D /* TransactionsCoordinator.swift */,
 				A0D5C8232464A6B800381F4D /* TransactionsFactory.swift */,
 				A0D5C81F2464A6B800381F4D /* View */,
+				A02286CE246849F700444A32 /* Add */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -820,18 +854,22 @@
 			files = (
 				A060A24E2465711800E58A87 /* DateFormatter.swift in Sources */,
 				A0D5C8272464A6B800381F4D /* TransactionsFactory.swift in Sources */,
+				A02286D8246849F700444A32 /* AddExpenseView.swift in Sources */,
 				A060A2502465A96700E58A87 /* RowStyle.swift in Sources */,
 				A0D5C8072464A44300381F4D /* AppCoordinator.swift in Sources */,
 				A0F59DA724646C1600D474D4 /* Currency.swift in Sources */,
 				A0F59D1C246451DD00D474D4 /* AppDelegate.swift in Sources */,
 				A0F59D1E246451DD00D474D4 /* SceneDelegate.swift in Sources */,
+				A02286D7246849F700444A32 /* AddExpensePresenter.swift in Sources */,
 				A060A2892466EC5F00E58A87 /* UpdateCurrencies.swift in Sources */,
 				A0F59DA324646B6800D474D4 /* CurrencyCode.swift in Sources */,
 				A060A29A2467687400E58A87 /* SaveExpense.swift in Sources */,
 				A060A24C246564F700E58A87 /* View+Navigation.swift in Sources */,
+				A02286D9246849F700444A32 /* AddExpenseFactory.swift in Sources */,
 				A0D5C8152464A50D00381F4D /* Coordinator.swift in Sources */,
 				A0D5C81D2464A6A500381F4D /* CategoriesPresenter.swift in Sources */,
 				A0D5C81C2464A6A500381F4D /* CategoriesView.swift in Sources */,
+				A02286DD246858B600444A32 /* AddExpenseViewModel.swift in Sources */,
 				A0D5C81B2464A6A500381F4D /* CategoriesViewModel.swift in Sources */,
 				A0D5C80A2464A44300381F4D /* TransactionsCoordinator.swift in Sources */,
 				A0D5C81E2464A6A500381F4D /* CategoriesFactory.swift in Sources */,
@@ -846,6 +884,7 @@
 				A0D5C8142464A50D00381F4D /* Presenter.swift in Sources */,
 				A060A28A2466EC5F00E58A87 /* SaveCurrencies.swift in Sources */,
 				A060A2842466020000E58A87 /* SetupCategoriesIfNeeded.swift in Sources */,
+				A02286DB24684C3700444A32 /* NumberFormatter.swift in Sources */,
 				A0D5C8082464A44300381F4D /* RootView.swift in Sources */,
 				A0F59DB024649D5600D474D4 /* Environment.swift in Sources */,
 				A0F59DA524646BFF00D474D4 /* Currencies.swift in Sources */,
@@ -853,6 +892,7 @@
 				A060A28C2466F50E00E58A87 /* AppLaunch.swift in Sources */,
 				A060A2982467199500E58A87 /* GetExchangeRate.swift in Sources */,
 				A0F59DA024646AE200D474D4 /* GetCurrencies.swift in Sources */,
+				A02286D5246849F700444A32 /* AddExpenseCoordinator.swift in Sources */,
 				A060A2882466EC5F00E58A87 /* RequestCurrencies.swift in Sources */,
 				A060A28E2466FFD200E58A87 /* GetCategories.swift in Sources */,
 				A0D5C8252464A6B800381F4D /* TransactionsView.swift in Sources */,
